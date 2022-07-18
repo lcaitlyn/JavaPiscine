@@ -1,6 +1,6 @@
 public class Program {
 
-    public static int getSumm(int x) {
+    public static int getSum(int x) {
         int sum = 0;
 
         while (x > 0) {
@@ -11,7 +11,7 @@ public class Program {
     }
 
     public static void main(String[] args) {
-        System.out.println(getSumm(123456));
-        System.out.println(getSumm(479598));
+        System.out.println(getSum(123456));
+        System.out.println(getSum(479598));
     }
 }
