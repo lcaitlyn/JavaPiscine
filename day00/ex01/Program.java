@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Program {
 
-    public static void isPrime(int x) {
+    public static boolean isPrime(int x) {
         int root = ((int) Math.ceil(Math.sqrt(x)));
 
         int i = 2;
@@ -13,7 +13,7 @@ public class Program {
         while (i <= root && x != 2) {
             if (x % i == 0) {
                 System.out.println("false " + iter);
-                return;
+                return (false);
             }
             else {
                 iter++;
@@ -21,6 +21,7 @@ public class Program {
             }
         }
         System.out.println("true " + iter);
+        return (true);
     }
 
     public static void main(String[] args) {
