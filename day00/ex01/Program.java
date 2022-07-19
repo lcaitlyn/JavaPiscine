@@ -57,7 +57,7 @@ public class Program {
         int x = sc.nextInt();
 
         if (!(x > 1)){
-            System.out.println("IllegalArgument");
+            System.err.println("IllegalArgument");
             System.exit(-1);
         }
         else {
