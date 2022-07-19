@@ -46,7 +46,7 @@ public class Program {
 
             if (str.equals("42"))
                 break;
-            else if (!str.equals("Weak " + (weakCounter + 1))) {
+            else if (!str.equals("Week " + (weakCounter + 1))) {
                 System.err.println("IllegalArgument");
                 System.exit(-1);
             }
@@ -78,7 +78,7 @@ public class Program {
         x = 1;
 
         while (weakCounter > 0) {
-            System.out.print("Weak " + x + " ");
+            System.out.print("Week " + x + " ");
             printGraph(getGrade(grades, weakCounter - 1));
             grades %= myPow(10, weakCounter - 1);
             weakCounter--;

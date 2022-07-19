@@ -35,7 +35,7 @@ public class Program {
         int iter = 1;
         
 
-        while (i <= root && x != 2) {
+        while (i <= root && x != 2 && x != 3) {
             if (x % i == 0) {
                 System.out.println("false " + iter);
                 return (false);
