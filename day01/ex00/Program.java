@@ -1,4 +1,4 @@
-public class Main {
+public class Program {
 
     public static void main(String[] args) {
         User first = new User();
@@ -14,6 +14,8 @@ public class Main {
         second.setIdentifier(777);
         second.setName("Боба");
         System.out.println(second.toString());
+
+        System.out.println();
 
         Transaction transaction = new Transaction();
 
