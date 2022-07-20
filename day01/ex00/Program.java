@@ -35,5 +35,7 @@ public class Program {
         transactionCredit.setTransferCategory(Transaction.transferType.CREDIT);
         transactionCredit.doTransfer();
         System.out.println(transactionCredit.toString());
+
+
     }
 }
