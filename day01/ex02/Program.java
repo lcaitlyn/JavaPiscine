@@ -29,7 +29,7 @@ public class Program {
         System.out.println("Пользователь с ID 5 = " + array.getById(5));
         System.out.println("Пользователь с ID 6 = " + array.getById(6));
 
-        System.out.println("Пользователь с index 25 = " + array.getByIndex(25));
+//        System.out.println("Пользователь с index 25 = " + array.getByIndex(25));
         System.out.println("Пользователь с ID 25 = " + array.getById(25));
 
     }

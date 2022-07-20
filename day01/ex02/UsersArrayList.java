@@ -27,7 +27,7 @@ public class UsersArrayList implements UserList {
                 return arr[i];
             }
         }
-        throw new UserNotFoundException();
+        throw new UserNotFoundException(id);
     }
 
     @Override
