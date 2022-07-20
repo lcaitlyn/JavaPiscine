@@ -1,6 +1,6 @@
 import java.util.UUID;
 
-public class Main {
+public class Program {
 
     public static void main(String[] args) {
         String[] names = {"Андрей","Антон","Денис","Вася","Петя","Коля","Саша","Маша","Наташа","Дима","Оля","Юля","Яна","Олег","Руслан","Людмила"};
