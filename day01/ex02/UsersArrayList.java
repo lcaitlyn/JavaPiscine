@@ -31,7 +31,7 @@ public class UsersArrayList implements UserList {
     }
 
     @Override
-    public User getByIndex(int index) {
+    public User getByIndex(int index) throws UserNotFoundException {
         if (index <= userNumber)
             return arr[index];
         throw new UserNotFoundException();
