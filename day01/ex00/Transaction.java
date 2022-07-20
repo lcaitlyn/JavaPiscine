@@ -55,7 +55,7 @@ public class Transaction {
             recipient.setBalance(transferAmount + recipient.getBalance());
         }
         else
-            System.out.println("Can't send money. Not enough balance.");
+            System.err.println("Can't send money. Not enough balance.");
     }
 
     @Override
