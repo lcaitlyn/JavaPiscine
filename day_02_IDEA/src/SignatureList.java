@@ -7,74 +7,65 @@ import java.util.Collections;
 import java.util.List;
 
 public class SignatureList {
-    private List<String> signatures = new ArrayList<String>();
+    private List<String []> signatures = new ArrayList<String []>(2);
 
-    public void createSignatures(String fileName) {
-        FileInputStream fileInputStream = null;
+    private void parseData(String str) {
+        for (String sub : str.split("\r\n")) {
+            String [] strArray = new String[2];
 
-        String str = "";
+            String res = "";
 
-        int [] allText = new int[1024];
+            strArray[0] = sub.substring(0, sub.indexOf(","));
 
-        String res = "";
-
-        try {
-            fileInputStream = new FileInputStream(fileName);
-
-            int i = 0;
-
-            try {
-                while ((allText[i] = fileInputStream.read()) != -1) {
-                    str += (char)allText[i];
-                    i++;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (sub.indexOf(',') > 0) {
+                sub = sub.substring(sub.indexOf(',') + 2);
             }
 
-            for (String sub : str.split("\n")) {
-                res = "";
-
-                if (sub.indexOf(',') > 0) {
-                    sub = sub.substring(sub.indexOf(',') + 2);
-                }
-
-                for (String s : sub.split(" ")) {
-                    if (s.isEmpty() != false) {
-                        res += Integer.parseInt(s, 16);
-                    }
-                }
-
-                System.out.println(res);
-
-                signatures.add(res);
+            for (String s : sub.split(" ")) {
+                res += Integer.parseInt(s, 16);
             }
 
-
-
-            Collections.addAll(signatures, str.split("\n"));
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            strArray[1] = res;
+            signatures.add(strArray);
         }
     }
 
-    public void addSignature(String newSignature) {
+    public void createSignatures(String fileName) {
+        File newFile = new File(fileName);
+
+        if (!newFile.canRead())
+            return;
+
+        parseData(MyFile.getData(fileName, 0));
+    }
+
+    public void addSignature(String [] newSignature) {
         signatures.add(newSignature);
     }
 
-    public boolean checkSignature(String newSignature) {
+    public String checkSignature(String newSignature) {
         for (int i = 0; i < signatures.size(); i++) {
-            if (newSignature.equals(signatures.get(i))) {
-                return true;
+            if (newSignature.contains(signatures.get(i)[1]) || signatures.get(i)[1].contains(newSignature)) {
+                return signatures.get(i)[0];
             }
         }
-        return false;
+        return null;
     }
 
     public void printSignatures() {
         for (int i = 0; i < signatures.size(); i++) {
-            System.out.println(signatures.get(i));
+            System.out.println(signatures.get(i)[0] + " = " + signatures.get(i)[1]);
         }
     }
+
+    public String convertToSignature(char [] data) {
+        String res = "";
+
+        for (int i = 0; i < data.length; i++) {
+            res += (int)data[i];
+        }
+        return res;
+    }
+
+
 }
