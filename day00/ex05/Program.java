@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main<i> {
+public class Program {
 
     static final String[] DAY_OF_WEEKEND = {"MO", "TU", "WE", "TH", "FR", "SA", "SU"};
     static final String ILLEGAL_ARG = "IllegalArgument";
@@ -184,6 +184,6 @@ public class Main<i> {
             }
             System.out.println();
         }
-
+        
     }
 }
