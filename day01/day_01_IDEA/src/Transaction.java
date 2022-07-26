@@ -8,8 +8,8 @@ public class Transaction {
     }
 
     private final UUID identifier;
-    private User recipient;
     private User sender;
+    private User recipient;
     private Integer transferAmount;
     private transferType transferCategory;
 
@@ -17,8 +17,8 @@ public class Transaction {
         this.identifier = UUID.randomUUID();
     }
 
-    Transaction(User recipient, User sender, Integer transferAmount, transferType transferCategory) {
-        this.identifier = UUID.randomUUID();
+    Transaction(UUID newUuid, User recipient, User sender, Integer transferAmount, transferType transferCategory) {
+        this.identifier = newUuid;
         this.recipient = recipient;
         this.sender = sender;
         this.transferAmount = transferAmount;
@@ -69,9 +69,9 @@ public class Transaction {
     @Override
     public String toString() {
         return "Transaction{" +
-                "identifier='" + identifier + '\'' +
-                ", recipient=" + recipient +
+                "identifier=" + identifier +
                 ", sender=" + sender +
+                ", recipient=" + recipient +
                 ", transferAmount=" + transferAmount +
                 ", transferCategory=" + transferCategory +
                 '}';

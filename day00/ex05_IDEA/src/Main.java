@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main<i> {
+public class Main {
 
     static final String[] DAY_OF_WEEKEND = {"MO", "TU", "WE", "TH", "FR", "SA", "SU"};
     static final String ILLEGAL_ARG = "IllegalArgument";
@@ -62,8 +62,6 @@ public class Main<i> {
                 System.exit(-1);
             }
 
-            int numOfWeek = -1;
-            int numOfTime = -1;
             char[] charArray = newLine.toCharArray();
             String newDay = "";
 

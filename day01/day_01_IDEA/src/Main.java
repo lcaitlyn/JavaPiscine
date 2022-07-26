@@ -19,17 +19,20 @@ public class Main {
 
         for (int i = 0; i < 10; i++) {
             User sender = users.getByIndex(i % 3);
-            User receipter = users.getByIndex((i + 1) % 3);
+            User recipient = users.getByIndex((i + 1) % 3);
             int amount = users.getByIndex(i % 3).getBalance() % 30 + 20;
+            UUID uuid = UUID.randomUUID();
 
-            Transaction newTransaction = new Transaction(sender, receipter, amount, Transaction.transferType.DEBIT);
-
-            if (sender.getIdentifier() == receipter.getIdentifier())
+            if (sender.getIdentifier() == recipient.getIdentifier())
                 continue;
 
-            sender.getTransactionsList().addTransaction(newTransaction);
-            receipter.getTransactionsList().addTransaction(newTransaction);
-            newTransaction.doTransfer();
+            Transaction creditTransaction = new Transaction(uuid, sender, recipient, amount, Transaction.transferType.DEBIT);
+            Transaction debitTransaction = new Transaction(uuid, sender, recipient, amount, Transaction.transferType.CREDIT);
+
+            sender.getTransactionsList().addTransaction(creditTransaction);
+            recipient.getTransactionsList().addTransaction(debitTransaction);
+            creditTransaction.doTransfer();
+            debitTransaction.doTransfer();
         }
 
         System.out.println("Actions...");
@@ -39,10 +42,13 @@ public class Main {
         }
 
         System.out.println("User's {name=" + users.getByIndex(0).getName() + "} Transfer list:");
-        Transaction [] transactionsArray = users.getByIndex(0).getTransactionsList().toArray();
+        for (Transaction a : users.getByIndex(0).getTransactionsList().toArray()) {
+            System.out.println(a);
+        }
 
-        for (int i = 0; i < users.getByIndex(0).getTransactionsList().getTransactionsNumber(); i++) {
-            System.out.println(transactionsArray[i].toString());
+        System.out.println("User's {name=" + users.getByIndex(1).getName() + "} Transfer list:");
+        for (Transaction a : users.getByIndex(1).getTransactionsList().toArray()) {
+            System.out.println(a);
         }
 
         users.getByIndex(0).getTransactionsList().removeTransaction(users.getByIndex(2).getTransactionsList().toArray()[0].getIdentifier());
@@ -50,11 +56,11 @@ public class Main {
 
         System.out.println("User's {name=" + users.getByIndex(0).getName() + "} Transfer List After Deleting:");
 
-        for (int i = 0; i < users.getByIndex(0).getTransactionsList().getTransactionsNumber(); i++) {
-            System.out.println(transactionsArray[i].toString());
+        for (Transaction a : users.getByIndex(0).getTransactionsList().toArray()) {
+            System.out.println(a);
         }
 
-        System.out.println("Time to die ☹️");
+        System.out.println("Time to die because:️");
         users.getByIndex(1).getTransactionsList().removeTransaction(users.getByIndex(0).getTransactionsList().toArray()[1].getIdentifier());
     }
 }
