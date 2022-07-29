@@ -150,7 +150,7 @@ public class Menu {
     private void checkUnpairedTransfer() {
         Transaction [] transactions = transactionsService.getUnpairedTransactions();
 
-        if (transactions.length == 0)
+        if (transactions == null)
             return;
 
         for (Transaction t : transactions) {
