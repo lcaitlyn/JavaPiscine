@@ -46,5 +46,7 @@ public class Program {
         }
 
         System.out.println("Count of coffee - request - " + i);
+
+        sc.close();
     }
 }

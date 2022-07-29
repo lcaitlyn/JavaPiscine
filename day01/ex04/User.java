@@ -10,6 +10,13 @@ public class User {
         this.balance = 0;
     }
 
+    User(String name, int newBalance) {
+        this.name = name;
+        this.identifier = UserIdsGenerator.getInstance().generateId();
+        if (newBalance >= 0)
+            this.balance = newBalance;
+    }
+
     public boolean setBalance(int balance) {
         if (balance >= 0) {
             this.balance = balance;
@@ -34,6 +41,10 @@ public class User {
         return name;
     }
 
+    public TransactionsLinkedList getTransactionsList() {
+        return transactionsLinkedList;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -43,7 +54,5 @@ public class User {
                 '}';
     }
 
-    public TransactionsLinkedList getTransactionsList() {
-        return transactionsLinkedList;
-    }
+
 }

@@ -26,12 +26,11 @@ public class Program {
             if (sender.getIdentifier() == recipient.getIdentifier())
                 continue;
 
-            Transaction creditTransaction = new Transaction(uuid, sender, recipient, amount, Transaction.transferType.DEBIT);
-            Transaction debitTransaction = new Transaction(uuid, sender, recipient, amount, Transaction.transferType.CREDIT);
+            Transaction debitTransaction = new Transaction(uuid, sender, recipient, amount, Transaction.transferType.DEBIT);
+            Transaction creditTransaction = new Transaction(uuid, sender, recipient, amount, Transaction.transferType.CREDIT);
 
-            sender.getTransactionsList().addTransaction(creditTransaction);
-            recipient.getTransactionsList().addTransaction(debitTransaction);
-            creditTransaction.doTransfer();
+            sender.getTransactionsList().addTransaction(debitTransaction);
+            recipient.getTransactionsList().addTransaction(creditTransaction);
             debitTransaction.doTransfer();
         }
 

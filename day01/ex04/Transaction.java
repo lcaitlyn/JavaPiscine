@@ -41,6 +41,10 @@ public class Transaction {
         return transferAmount;
     }
 
+    public transferType getTransferCategory() {
+        return transferCategory;
+    }
+
     public void setRecipient(User recipient) {
         this.recipient = recipient;
     }

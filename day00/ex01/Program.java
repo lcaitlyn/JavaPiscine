@@ -63,5 +63,7 @@ public class Program {
         else {
             isPrime(x);
         }
+
+        sc.close();
     }
 }

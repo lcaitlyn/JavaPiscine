@@ -60,4 +60,21 @@ public class TransactionsLinkedList implements TransactionsList {
         }
         return array;
     }
+
+    @Override
+    public Transaction getTransaction(UUID identifier) {
+        TransactionNode tmp = head;
+
+        if (transactionsNumber == 0 || tmp == null)
+            return null;
+
+        for (int i = 0; i < transactionsNumber; i++) {
+            if (tmp.getData().getIdentifier().equals(identifier)) {
+                System.out.println("tmp = " + tmp.getData().getIdentifier() + " identifier = " + identifier);
+                return tmp.getData();
+            }
+
+        }
+        return null;
+    }
 }

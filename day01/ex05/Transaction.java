@@ -41,6 +41,10 @@ public class Transaction {
         return transferAmount;
     }
 
+    public transferType getTransferCategory() {
+        return transferCategory;
+    }
+
     public void setRecipient(User recipient) {
         this.recipient = recipient;
     }
@@ -57,13 +61,13 @@ public class Transaction {
         this.transferAmount = transferAmount;
     }
 
-    public void doTransfer() {
+    public void doTransfer() throws IllegalTransactionException {
         if (sender.getBalance() >= this.transferAmount) {
             sender.setBalance(transferAmount * -1 + sender.getBalance());
             recipient.setBalance(transferAmount + recipient.getBalance());
         }
         else
-            System.err.println("Can't send money. Not enough balance.");
+            throw new IllegalTransactionException();
     }
 
     @Override

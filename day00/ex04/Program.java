@@ -109,5 +109,7 @@ public class Program {
             System.exit(-1);
 
         sorting(alp, size);
+
+        sc.close();
     }
 }

@@ -26,7 +26,7 @@ public class TransactionsLinkedList implements TransactionsList {
         TransactionNode tmp = head;
 
         for (int i = 0; i < transactionsNumber; i++) {
-            if (tmp.getData().getIdentifier() == identifier) {
+            if (tmp.getData().getIdentifier().equals(identifier)) {
                 if (tmp.getPrev() != null) {
                     tmp.getPrev().setNext(tmp.getNext());
                 } else {
@@ -59,5 +59,22 @@ public class TransactionsLinkedList implements TransactionsList {
             tmp = tmp.getNext();
         }
         return array;
+    }
+
+    @Override
+    public Transaction getTransaction(UUID identifier) {
+        TransactionNode tmp = head;
+
+        if (transactionsNumber == 0 || tmp == null)
+            return null;
+
+        for (int i = 0; i < transactionsNumber; i++) {
+            if (tmp.getData().getIdentifier().equals(identifier)) {
+                System.out.println("tmp = " + tmp.getData().getIdentifier() + " identifier = " + identifier);
+                return tmp.getData();
+            }
+
+        }
+        return null;
     }
 }

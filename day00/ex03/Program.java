@@ -84,5 +84,7 @@ public class Program {
             weakCounter--;
             x++;
         }
+
+        sc.close();
     }
 }
