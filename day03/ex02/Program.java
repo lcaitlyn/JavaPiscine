@@ -56,17 +56,14 @@ public class Program {
         checkArgs();
 
         int [] arr = createArray(sizeArr);
-        int [] size = new int[sizeThread];
-
-        for (int i = 0; i < sizeArr; i++) {
-            size[i % sizeThread]++;
-        }
-
+        int size = sizeArr / sizeThread;
         int index = 0;
-        for (int i = 0; i < sizeThread; i++) {
-            new Thread(new MyRunnable(queue, arr, index, index + size[i])).start();
-            index += size[i];
+
+        for (int i = 0; i < sizeThread - 1; i++) {
+            new Thread(new MyRunnable(queue, arr, index, index + size)).start();
+            index += size;
         }
+        new Thread(new MyRunnable(queue, arr, index, sizeArr)).start();
 
         printResult(queue);
     }
