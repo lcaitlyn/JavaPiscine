@@ -58,7 +58,7 @@ public class Program {
 
     public static int countSumInInterval(int index, int count) {
         int result = 0;
-        for (int i = index; i < index + count; i++) {
+        for (int i = index; i < index + count; i++) {a
             result += arrayNumbers[i];
         }
         return result;
