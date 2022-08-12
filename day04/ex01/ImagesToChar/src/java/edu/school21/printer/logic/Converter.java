@@ -5,11 +5,12 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class Converter {
-    public static void convertFromBmpToConsole(char white, char black, String path) {
+    public static void convertFromBmpToConsole(char white, char black) {
         try {
-            BufferedImage image = ImageIO.read(new File(path));
+            BufferedImage image = ImageIO.read(new File("/resources/it.bmp"));
 
             for (int x = 0; x < image.getHeight(); x++) {
                 for (int y = 0; y < image.getWidth(); y++) {
