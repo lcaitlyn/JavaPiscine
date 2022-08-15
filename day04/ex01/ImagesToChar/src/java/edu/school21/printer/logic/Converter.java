@@ -10,7 +10,7 @@ import java.net.URL;
 public class Converter {
     public static void convertFromBmpToConsole(char white, char black) {
         try {
-            BufferedImage image = ImageIO.read(new File("/resources/it.bmp"));
+            BufferedImage image = ImageIO.read(Converter.class.getResource("/resources/it.bmp"));
 
             for (int x = 0; x < image.getHeight(); x++) {
                 for (int y = 0; y < image.getWidth(); y++) {
