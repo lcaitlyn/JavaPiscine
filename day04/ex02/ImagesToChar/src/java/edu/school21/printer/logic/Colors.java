@@ -14,14 +14,10 @@ public class Colors {
             return Color.GREEN;
         } else if (colorName.equals("BLUE") || colorName.equals("blue")) {
             return Color.BLUE;
-        } else if (colorName.equals("GRAY") || colorName.equals("gray")) {
-            return Color.GRAY;
         } else if (colorName.equals("YELLOW") || colorName.equals("yellow")) {
             return Color.YELLOW;
         } else if (colorName.equals("CYAN") || colorName.equals("cyan")) {
             return Color.CYAN;
-        } else if (colorName.equals("PINK") || colorName.equals("pink")) {
-            return Color.PINK;
         }
         return null;
     }

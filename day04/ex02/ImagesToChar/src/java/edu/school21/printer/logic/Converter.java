@@ -5,13 +5,24 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+
+import static com.diogonunes.jcolor.Attribute.*;
+
 import static com.diogonunes.jcolor.Ansi.colorize;
-import static com.diogonunes.jcolor.Attribute.BACK_COLOR;
+//import static com.diogonunes.jcolor.Attribute.BACK_COLOR;
 
 public class Converter {
     public static void convertFromBmpToConsole(Color white, Color black) {
         if (white == null || black == null) {
             System.err.println("Цвет не найден. Попробуйте --white=RED --black=GREEN");
+            System.err.println("Доступные цвета: ");
+            System.err.println(colorize("WHITE", WHITE_TEXT(), BLACK_BACK()));
+            System.err.println(colorize("BLACK", BLACK_TEXT(), WHITE_BACK()));
+            System.err.println(colorize("RED", RED_TEXT()));
+            System.err.println(colorize("GREEN", GREEN_TEXT()));
+            System.err.println(colorize("BLUE", BLUE_TEXT()));
+            System.err.println(colorize("YELLOW", YELLOW_TEXT()));
+            System.err.println(colorize("CYAN", CYAN_TEXT()));
             System.exit(-1);
         }
 
