@@ -5,7 +5,7 @@ import java.util.*;
 public class Chatroom {
     private int id;
     private String name;
-    private int chatOwner;
+    private User chatOwner;
     List<Message> messageList = new LinkedList<Message>();
 
     @Override

@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class Message {
     private int id;
-    private String author;
-    private String room_id;
+    private User author;
+    int Chatroom room;
     private String text;
     private LocalDateTime time;
 
