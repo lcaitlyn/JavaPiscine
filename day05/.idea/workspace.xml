@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d7022c1-559f-4966-ad11-c9238dc21942" name="Changes" comment="" />
+    <list default="true" id="3d7022c1-559f-4966-ad11-c9238dc21942" name="Changes" comment="испрваил немного">
+      <change afterPath="$PROJECT_DIR$/../.idea/JavaPiscine.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day05.iml" beforeDir="false" afterPath="$PROJECT_DIR$/day05.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex00/Chat/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ex00/Chat/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex01/Chat/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ex01/Chat/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex01/Chat/src/main/java/edu.school21.chat/models/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex01/Chat/src/main/java/edu.school21.chat/models/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex01/Chat/src/main/java/edu.school21.chat/repositories/MessagesRepositoryJdbcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex01/Chat/src/main/java/edu.school21.chat/repositories/MessagesRepositoryJdbcImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/day05/Program.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Tag Library Descriptor" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -14,14 +35,50 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2DaJ4wgz4koW3BHPBLtjXY0PjVv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowAnt.ShowToolbar": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/pc/Desktop/JavaPiscine/day05/ex01/Chat",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\Desktop\JavaPiscine\day05\ex00\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\Desktop\JavaPiscine\day05\ex01\Chat\lib\HikariCP" />
+      <recent name="C:\Users\pc\Desktop\JavaPiscine\day05\ex01\Chat" />
+      <recent name="C:\Users\pc\Desktop\JavaPiscine\day05\ex00\Chat" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.edu.school21.chat.app.Program" />
+      <module name="day05" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -31,7 +88,69 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1660931077195</updated>
+      <workItem from="1666375443882" duration="7138000" />
+      <workItem from="1666428865039" duration="1370000" />
+      <workItem from="1666436670990" duration="9281000" />
+      <workItem from="1666454703814" duration="3446000" />
+      <workItem from="1666458423353" duration="211000" />
     </task>
+    <task id="LOCAL-00001" summary="added ex00">
+      <created>1666382793718</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666382793718</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added ex00">
+      <created>1666382999355</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666382999355</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added day05 ex00">
+      <created>1666429032495</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666429032495</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added day05 ex01 (не доделана! тестить на маке нужно)">
+      <created>1666446429555</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666446429555</updated>
+    </task>
+    <task id="LOCAL-00005" summary="испрваил немного">
+      <created>1666446462024</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666446462024</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added ex00" />
+    <MESSAGE value="added day05 ex00" />
+    <MESSAGE value="added day05 ex01 (не доделана! тестить на маке нужно)" />
+    <MESSAGE value="испрваил немного" />
+    <option name="LAST_COMMIT_MESSAGE" value="испрваил немного" />
   </component>
 </project>

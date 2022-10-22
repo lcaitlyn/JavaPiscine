@@ -46,10 +46,10 @@ public class Message {
     public String toString() {
         return "Message{" +
                 "id=" + id +
-                ", author=" + author +
-                ", room=" + room +
+                ", author=" + author.getId() +
+                ", room=" + room.getId() +
                 ", text='" + text + '\'' +
-                ", time=" + time +
+                ", time=" + time.toLocalTime() + " " + time.toLocalDate() +
                 '}';
     }
 

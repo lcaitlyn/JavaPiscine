@@ -5,10 +5,7 @@ import main.java.edu.school21.chat.models.Message;
 import main.java.edu.school21.chat.models.User;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Optional;
 
 public class MessagesRepositoryJdbcImpl implements MessagesRepository {
