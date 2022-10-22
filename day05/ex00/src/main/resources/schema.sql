@@ -1,5 +1,6 @@
-drop schema if exists chat;
 drop table if exists chat.users, chat.rooms, chat.messages;
+drop schema if exists chat;
+
 
 create schema chat;
 
