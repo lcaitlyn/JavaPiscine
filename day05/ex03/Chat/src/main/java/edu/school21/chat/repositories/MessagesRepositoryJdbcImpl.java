@@ -72,7 +72,7 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
 
 //    update chat.messages set room_id = '1', author = '1', message = 'text', time = '1-1-2000 16:00:00' where id = 1
     @Override
-    public boolean update(Message message) throws SQLException {
+    public boolean update(Message message) throws SQLException, NotSavedSubEntityException {
         String query = "update chat.messages set room_id = ?, author = ?, message = ?, time = '"
         + Timestamp.valueOf(message.getTime()) + "' where id = ?";
 
@@ -85,7 +85,7 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
             preparedStatement.setLong(4, message.getId());
 
             preparedStatement.execute();
-        } catch (SQLException e) {
+        } catch (NotSavedSubEntityException e) {
             e.printStackTrace();
         }
 

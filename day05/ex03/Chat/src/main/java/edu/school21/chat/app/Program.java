@@ -29,6 +29,10 @@ public class Program {
 
         Optional<Message> optionalMessage = messagesRepositoryJdbc.findById(3L);
 
+
+        System.out.println();
+
+
         if (optionalMessage.isPresent()) {
             Message message = optionalMessage.get();
 
@@ -45,9 +49,17 @@ public class Program {
             Message message = optionalMessage.get();
 
             System.out.println(message);
+            System.out.println();
+
+            System.out.println("Щас будет микротест, в котором должен вылезти exception!!!");
+
+            message.setAuthor(new User(228, "Admin", "Admin"));
+
+            messagesRepositoryJdbc.update(message);
         } else {
             System.err.println("Сообщение не найдено!");
         }
+
 
     }
 }
