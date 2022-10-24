@@ -28,7 +28,7 @@ public class UsersRepositoryJdbcImpl implements UsersRepository{
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setLong(1, size); // limit
-            statement.setLong(2, (long) page * size); // offset
+            statement.setLong(2, (long) page * size - 1); // offset
 
             statement.execute();
 
