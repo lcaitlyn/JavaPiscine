@@ -5,10 +5,12 @@ import main.java.edu.school21.chat.models.Chatroom;
 import main.java.edu.school21.chat.models.Message;
 import main.java.edu.school21.chat.models.User;
 import main.java.edu.school21.chat.repositories.MessagesRepositoryJdbcImpl;
+import main.java.edu.school21.chat.repositories.UsersRepositoryJdbcImpl;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -25,41 +27,13 @@ public class Program {
     }
 
     public static void main(String[] args) throws SQLException {
-        MessagesRepositoryJdbcImpl messagesRepositoryJdbc = new MessagesRepositoryJdbcImpl(makeHikariDataSource());
-
-        Optional<Message> optionalMessage = messagesRepositoryJdbc.findById(3L);
-
+        UsersRepositoryJdbcImpl usersRepositoryJdbc = new UsersRepositoryJdbcImpl(makeHikariDataSource());
 
         System.out.println();
 
+        List<User> users = usersRepositoryJdbc.findAll(3, 4);
 
-        if (optionalMessage.isPresent()) {
-            Message message = optionalMessage.get();
-
-            message.setText("Я изменил текст :D");
-            message.setTime(LocalDateTime.now());
-
-            messagesRepositoryJdbc.update(message);
-        } else {
-            System.err.println("Сообщение не найдено!");
-        }
-
-        optionalMessage = messagesRepositoryJdbc.findById(3L);
-        if (optionalMessage.isPresent()) {
-            Message message = optionalMessage.get();
-
-            System.out.println(message);
-            System.out.println();
-
-            System.out.println("Щас будет микротест, в котором должен вылезти exception!!!");
-
-            message.setAuthor(new User(228, "Admin", "Admin"));
-
-            messagesRepositoryJdbc.update(message);
-        } else {
-            System.err.println("Сообщение не найдено!");
-        }
-
+        System.out.println(users);
 
     }
 }
