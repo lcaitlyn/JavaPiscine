@@ -1,10 +1,8 @@
-package main.java.edu.school21.chat.app;
+package edu.school21.chat.app;
 
 import com.zaxxer.hikari.HikariDataSource;
-import main.java.edu.school21.chat.models.Chatroom;
-import main.java.edu.school21.chat.models.Message;
-import main.java.edu.school21.chat.models.User;
-import main.java.edu.school21.chat.repositories.MessagesRepositoryJdbcImpl;
+import edu.school21.chat.models.*;
+import edu.school21.chat.repositories.MessagesRepositoryJdbcImpl;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;

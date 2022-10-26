@@ -1,4 +1,4 @@
-package main.java.edu.school21.chat.models;
+package edu.school21.chat.models;
 
 import java.util.LinkedList;
 import java.util.List;

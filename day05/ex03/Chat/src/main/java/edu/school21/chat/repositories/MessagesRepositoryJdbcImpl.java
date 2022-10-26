@@ -1,9 +1,7 @@
-package main.java.edu.school21.chat.repositories;
+package edu.school21.chat.repositories;
 
-import main.java.edu.school21.chat.exception.NotSavedSubEntityException;
-import main.java.edu.school21.chat.models.Chatroom;
-import main.java.edu.school21.chat.models.Message;
-import main.java.edu.school21.chat.models.User;
+import edu.school21.chat.exception.NotSavedSubEntityException;
+import edu.school21.chat.models.*;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -85,8 +83,8 @@ public class MessagesRepositoryJdbcImpl implements MessagesRepository {
             preparedStatement.setLong(4, message.getId());
 
             preparedStatement.execute();
-        } catch (NotSavedSubEntityException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new NotSavedSubEntityException();
         }
 
         return true;

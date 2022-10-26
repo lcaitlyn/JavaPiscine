@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d7022c1-559f-4966-ad11-c9238dc21942" name="Changes" comment="испрваил немного">
-      <change afterPath="$PROJECT_DIR$/../.idea/JavaPiscine.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day05.iml" beforeDir="false" afterPath="$PROJECT_DIR$/day05.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex00/Chat/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ex00/Chat/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex01/Chat/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ex01/Chat/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex01/Chat/src/main/java/edu.school21.chat/models/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex01/Chat/src/main/java/edu.school21.chat/models/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex01/Chat/src/main/java/edu.school21.chat/repositories/MessagesRepositoryJdbcImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex01/Chat/src/main/java/edu.school21.chat/repositories/MessagesRepositoryJdbcImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/day05/Program.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex04/Chat/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ex04/Chat/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex04/Chat/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ex04/Chat/.idea/sqldialects.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,25 +33,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ToolWindowAnt.ShowToolbar": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/pc/Desktop/JavaPiscine/day05/ex01/Chat",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
-    ]
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\pc\Desktop\JavaPiscine\day05\ex00\src\main\resources" />
@@ -93,6 +71,7 @@
       <workItem from="1666436670990" duration="9281000" />
       <workItem from="1666454703814" duration="3446000" />
       <workItem from="1666458423353" duration="211000" />
+      <workItem from="1666786234151" duration="22000" />
     </task>
     <task id="LOCAL-00001" summary="added ex00">
       <created>1666382793718</created>
