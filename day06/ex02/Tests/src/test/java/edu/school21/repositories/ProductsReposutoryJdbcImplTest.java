@@ -18,16 +18,16 @@ public class ProductsReposutoryJdbcImplTest {
     private ProductsReposutoryJdbcImpl productsReposutoryJdbc;
 
     final List<Product> EXPECTED_FIND_ALL_PRODUCTS = Arrays.asList(
-            new Product(1, "apple", 100),
-            new Product(2, "banana", 105),
-            new Product(3, "strawberry", 90),
-            new Product(4, "peach", 80),
-            new Product(5, "melon", 110),
-            new Product(6, "watermelon", 140),
-            new Product(7, "cherry", 150),
-            new Product(8, "blackberry", 70),
-            new Product(9, "gooseberry", 87),
-            new Product(10, "qiwi", 81));
+            new Product(0, "apple", 100),
+            new Product(1, "banana", 105),
+            new Product(2, "strawberry", 90),
+            new Product(3, "peach", 80),
+            new Product(4, "melon", 110),
+            new Product(5, "watermelon", 140),
+            new Product(6, "cherry", 150),
+            new Product(7, "blackberry", 70),
+            new Product(8, "gooseberry", 87),
+            new Product(9, "qiwi", 81));
 
     final Product EXPECTED_FIND_BY_ID_PRODUCT = new Product(7, "cherry", 150);
     final Product EXPECTED_UPDATED_PRODUCT = new Product(7, "cherryCherryLady", 228);
@@ -50,8 +50,13 @@ public class ProductsReposutoryJdbcImplTest {
 
     @Test
     void findAllTest() throws Exception {
+        List<Product> actualList = productsReposutoryJdbc.findAll();
+
+//
         for (int i = 0; i < 10; i++) {
-            Assertions.assertEquals(EXPECTED_FIND_ALL_PRODUCTS.get(i)., productsReposutoryJdbc.findAll().get(i));
+            Assertions.assertEquals(EXPECTED_FIND_ALL_PRODUCTS.get(i).getId(), actualList.get(i).getId());
+            Assertions.assertEquals(EXPECTED_FIND_ALL_PRODUCTS.get(i).getName(), actualList.get(i).getName());
+            Assertions.assertEquals(EXPECTED_FIND_ALL_PRODUCTS.get(i).getPrice(), actualList.get(i).getPrice());
         }
 //        System.out.println(EXPECTED_FIND_ALL_PRODUCTS);
 //        System.out.println(productsReposutoryJdbc.findAll());
