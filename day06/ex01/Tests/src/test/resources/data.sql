@@ -1,0 +1,10 @@
+insert into products (name, price) values ('apple', 100);
+insert into products (name, price) values ('banana', 105);
+insert into products (name, price) values ('strawberry', 90);
+insert into products (name, price) values ('peach', 80);
+insert into products (name, price) values ('melon', 110);
+insert into products (name, price) values ('watermelon', 140);
+insert into products (name, price) values ('cherry', 150);
+insert into products (name, price) values ('blackberry', 70);
+insert into products (name, price) values ('gooseberry', 87);
+insert into products (name, price) values ('qiwi', 81);
