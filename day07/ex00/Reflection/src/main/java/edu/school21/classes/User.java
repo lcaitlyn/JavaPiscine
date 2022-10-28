@@ -8,7 +8,6 @@ public class User {
     private int height;
 
     public User() {
-        firstName
         this.firstName = "Default first name";
         this.lastName = "Default last name";
         this.height = 0;
@@ -21,6 +20,11 @@ public class User {
     }
 
     public int grow(int value) {
+        this.height += value;
+        return height;
+    }
+
+    public int grow2(int value, double d, float f, String s) {
         this.height += value;
         return height;
     }
