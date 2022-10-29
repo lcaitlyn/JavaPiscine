@@ -22,6 +22,14 @@ public class Car {
         return maxSpeed;
     }
 
+    public void printMethod(String s, Integer i, Double d, Boolean b, Long l) {
+        System.out.println(s);
+        System.out.println(i);
+        System.out.println(d);
+        System.out.println(b);
+        System.out.println(l);
+    }
+
     @Override
     public String toString() {
         return "Car{" +

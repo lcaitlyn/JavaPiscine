@@ -1,9 +1,8 @@
 package edu.school21.app;
 
-import edu.school21.classes.Car;
-import edu.school21.classes.User;
+import io.github.classgraph.ClassGraph;
+import io.github.classgraph.ScanResult;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
@@ -11,14 +10,22 @@ import java.util.*;
 
 public class Program {
     private static final String TEXT_DIVIDER = "---------------------";
-    private static Scanner scanner = new Scanner(System.in);
+    private static final String CLASSES_PACKAGE = "edu.school21.classes";
     private static Object object;
     private static Object newObject;
-    private static Object [] classes = {new User(), new Car()};
+    private static Object [] classes;
     private static String scan;
     
 
     public static void main(String[] args) throws Exception {
+        Scanner scanner = new Scanner(System.in);
+
+        List<Class<?>> list = getClassesFromPackage(CLASSES_PACKAGE);
+        classes = new Object[list.size()];
+
+        for (int i = 0; i < list.size(); i++) {
+            classes[i] = list.get(i).newInstance();
+        }
 
         while (true) {
             System.out.println("Classes:");
@@ -84,8 +91,6 @@ public class Program {
         if (object.getClass().getMethods() == null)
             System.exit(0);
 
-
-//        scanner.nextLine();
         Method method = null;
 
         while (true) {
@@ -105,8 +110,6 @@ public class Program {
             } else
                 break;
         }
-
-//        method.setAccessible(true);
 
         List<Object> parameters = new LinkedList<>();
 
@@ -128,6 +131,8 @@ public class Program {
     }
 
     public static Object getInfoFromString(String raw) {
+        Scanner scanner = new Scanner(System.in);
+
         switch (raw.toLowerCase()) {
             case "string":
                 return scanner.nextLine();
@@ -137,16 +142,27 @@ public class Program {
             case "long":
                 return scanner.nextLong();
             case "boolean":
-                return scanner.nextLong();
+                return scanner.nextBoolean();
             case "double":
                 return scanner.nextDouble();
             case "float":
                 return scanner.nextFloat();
             case "char":
             case "character":
-                return scanner.next();
+                return scanner.nextLine().charAt(0);
         }
         return null;
+    }
+
+    // вот тут вообще хз можно это использовать или нет? вроде все функции разрешены и остальное тоже
+    // случайно нашел это пока искал решение https://github.com/classgraph/classgraph
+    // в принципе мог и сам написать, но мне лень)))
+    public static List<Class <?>> getClassesFromPackage(String findPackage) {
+        try (ScanResult scanResult = new ClassGraph()
+                .whitelistPackages(findPackage)
+                .scan()) {
+            return scanResult.getAllClasses().loadClasses();
+        }
     }
 }
 
