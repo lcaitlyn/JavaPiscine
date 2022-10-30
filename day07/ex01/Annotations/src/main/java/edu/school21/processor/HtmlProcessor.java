@@ -26,6 +26,17 @@ import java.util.Set;
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class HtmlProcessor extends AbstractProcessor {
 
+    @Override
+    public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
+        Set<? extends Element> elements = roundEnv.getElementsAnnotatedWith(HtmlForm.class);
+
+        for (Element e : elements) {
+            createHtmlFile(e);
+        }
+
+        return false;
+    }
+
     private void createHtmlFile(Element htmlFormElement) {
         final String FORM_CREATER_FORMATED = "<form action = \"%s\" method = \"%s\">\n";
         final String INPUT_FORMATED = "\t<input type = \"%s\" name = \"%s\" placeholder = \"%s\">\n";
@@ -56,52 +67,4 @@ public class HtmlProcessor extends AbstractProcessor {
             throw new RuntimeException(e);
         }
     }
-
-    @Override
-    public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
-        Set<? extends Element> elements = roundEnv.getElementsAnnotatedWith(HtmlForm.class);
-
-        for (Element e : elements) {
-            createHtmlFile(e);
-        }
-
-        return false;
-    }
 }
-
-//@SupportedAnnotationTypes("edu.school21.annotation.HtmlForm")
-//@AutoService(Processor.class)
-//public class HtmlProcessor extends AbstractProcessor {
-//    @Override
-//    public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
-//        Set<? extends Element> annotatedHtmlFormElements = roundEnv.getElementsAnnotatedWith(HtmlForm.class);
-//        for (Element annotatedHtmlFormElement : annotatedHtmlFormElements) {
-//            printForm(annotatedHtmlFormElement);
-//        }
-//        return false;
-//    }
-//
-//    private static void printForm(Element annotatedHtmlFormElement) {
-//        HtmlForm htmlForm = annotatedHtmlFormElement.getAnnotation(HtmlForm.class);
-//        FileWriter formFile;
-//        try {
-//            formFile = new FileWriter(htmlForm.fileName());
-//            formFile.write(String.format("<form action = \"%s\" method = \"%s\">\n",
-//                    htmlForm.action(), htmlForm.method()));
-//            List<? extends Element> annotatedHtmlFormElementEnclosedElements = annotatedHtmlFormElement.getEnclosedElements();
-//            for (Element annotatedHtmlFormElementEnclosedElement : annotatedHtmlFormElementEnclosedElements) {
-//                HtmlInput htmlInput = annotatedHtmlFormElementEnclosedElement.getAnnotation(HtmlInput.class);
-//                if (htmlInput != null) {
-//                    formFile.write(String.format("\t<input type = \"%s\" name = \"%s\" placeholder = \"%s\">\n",
-//                            htmlInput.type(), htmlInput.name(), htmlInput.placeholder()));
-//                }
-//            }
-//            formFile.write("\t<input type = \"submit\" value = \"Send\">\n");
-//            formFile.write("</form>\n");
-//            formFile.flush();
-//            formFile.close();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-//}
