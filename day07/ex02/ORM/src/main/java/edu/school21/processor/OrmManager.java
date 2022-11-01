@@ -157,9 +157,9 @@ public class OrmManager extends AbstractProcessor {
     }
 
     public void save(Object entity) {
-        try (PreparedStatement statement = dataSource.getConnection().prepareStatement(SAVE_QUERY)) {
+        try (Statement statement = dataSource.getConnection().createStatement()) {
 //
-            statement.setString(1, entity.getClass().getAnnotation(OrmEntity.class).table());
+//            statement.setString(1, entity.getClass().getAnnotation(OrmEntity.class).table());
 
             String typesBuilder = "";
             String valuesBuilder = "";
@@ -192,10 +192,15 @@ public class OrmManager extends AbstractProcessor {
 
             System.out.println(valuesBuilder);
 
-            statement.setNString(2, typesBuilder);
-            statement.setNString(3, valuesBuilder);
+//            statement.setNString(2, typesBuilder);
+//            statement.setNString(3, valuesBuilder);
 
-            statement.execute();
+            String query = "insert into " + entity.getClass().getAnnotation(OrmEntity.class).table()
+                    + " (" + typesBuilder + ") values (" + valuesBuilder + ")";
+
+            System.out.println(query);
+
+            statement.execute(query);
 
         } catch (Exception e) {
             e.printStackTrace();
