@@ -30,6 +30,12 @@ public class Program {
         ormManager.save(car);
         ormManager.save(testClass);
 
+        user.setFirstName("NoValera");
+        user.setLastName("NoValerian");
+        user.setAge(332);
+
+        ormManager.update(user);
+
 
 
 

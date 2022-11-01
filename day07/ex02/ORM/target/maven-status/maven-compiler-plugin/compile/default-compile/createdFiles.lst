@@ -1,9 +1,0 @@
-edu/school21/models/Car.class
-edu/school21/models/TestClass.class
-edu/school21/models/User.class
-edu/school21/processor/OrmManager.class
-edu/school21/annotation/OrmColumnId.class
-edu/school21/app/Program.class
-edu/school21/annotation/OrmColumn.class
-META-INF/services/java.lang.Process
-edu/school21/annotation/OrmEntity.class

@@ -17,10 +17,7 @@ import javax.lang.model.element.TypeElement;
 import javax.sql.DataSource;
 import java.io.*;
 import java.lang.reflect.Field;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -33,7 +30,8 @@ import java.util.Set;
 public class OrmManager extends AbstractProcessor {
     final String DROP_TABLE_QUERY_FORM = "DROP TABLE IF EXISTS %s;\n\n";
     final String CREATE_TABLE_QUERY_FORM = "CREATE TABLE %s (\n";
-    final String IDENTITY_PRIMARY_KEY = "id SERIAL PRIMARY KEY";
+    final String INT_IDENTITY_PRIMARY_KEY = "id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY";
+    final String LONG_IDENTITY_PRIMARY_KEY = "id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY";
     final String VARCHAR_LENGTH_FIELD_QUERY_FORM = "%s VARCHAR(%d)";
     final String VARCHAR_NO_LENGTH_FIELD_QUERY_FORM = "%s VARCHAR(256)";
     final String INT_FIELD_QUERY_FORM = "%s INT";
@@ -44,6 +42,7 @@ public class OrmManager extends AbstractProcessor {
     final String CLOSE_TABLE_QUERY = ");\n\n";
 
     final String SAVE_QUERY = "insert into ? (?) values (?);";
+    final String UPDATE_QUERY = "update ? set ? where id = ?";
 
     DataSource dataSource;
     public OrmManager() {}
@@ -108,7 +107,10 @@ public class OrmManager extends AbstractProcessor {
         OrmColumn ormColumn = element.getAnnotation(OrmColumn.class);
 
         if (ormColumnId != null) {
-            return IDENTITY_PRIMARY_KEY;
+            if (field.getType().getSimpleName().toLowerCase().equals("long"))
+                return LONG_IDENTITY_PRIMARY_KEY;
+            else
+                return INT_IDENTITY_PRIMARY_KEY;
         }
 
         if (ormColumn != null) {
@@ -158,28 +160,16 @@ public class OrmManager extends AbstractProcessor {
 
     public void save(Object entity) {
         try (Statement statement = dataSource.getConnection().createStatement()) {
-//
-//            statement.setString(1, entity.getClass().getAnnotation(OrmEntity.class).table());
-
             String typesBuilder = "";
             String valuesBuilder = "";
 
             for (Field f : entity.getClass().getDeclaredFields()) {
                 if (f.getAnnotation(OrmColumn.class) != null) {
+
                     typesBuilder += f.getAnnotation(OrmColumn.class).name() + ", ";
-                }
-    //            System.out.println(f.getAnnotation(OrmColumn.class).name());
-    //            System.out.println(f.getAnnotation(OrmColumn.class).name());
-    //            valuesBuilder += f.getAnnotation(OrmColumn.class).name() + ", ";
-            }
-            typesBuilder = typesBuilder.substring(0, typesBuilder.length() - 2);
 
-            System.out.println(typesBuilder);
-
-            for (Field f : entity.getClass().getDeclaredFields()) {
-                if (f.getAnnotation(OrmColumn.class) != null) {
                     f.setAccessible(true);
-                    if (f.getType().getSimpleName().toString().equals("String")) {
+                    if (f.getType().getSimpleName().equals("String")) {
                         valuesBuilder += "'" + f.get(entity).toString() + "'";
                     } else {
                         valuesBuilder += f.get(entity).toString();
@@ -188,26 +178,62 @@ public class OrmManager extends AbstractProcessor {
                     f.setAccessible(false);
                 }
             }
+            typesBuilder = typesBuilder.substring(0, typesBuilder.length() - 2);
             valuesBuilder = valuesBuilder.substring(0, valuesBuilder.length() - 2);
 
-            System.out.println(valuesBuilder);
-
-//            statement.setNString(2, typesBuilder);
-//            statement.setNString(3, valuesBuilder);
-
-            String query = "insert into " + entity.getClass().getAnnotation(OrmEntity.class).table()
-                    + " (" + typesBuilder + ") values (" + valuesBuilder + ")";
+            String query = "INSERT INTO " + entity.getClass().getAnnotation(OrmEntity.class).table()
+                    + " (" + typesBuilder + ") VALUES (" + valuesBuilder + ") RETURNING id";
 
             System.out.println(query);
-
             statement.execute(query);
 
+            // заменяю id нашего объекта на тот, что находится в базе данных
+            ResultSet resultSet = statement.getResultSet();
+
+            if (resultSet.next()) {
+                Field field = entity.getClass().getDeclaredField("id");
+                System.out.println(field.getName());
+                field.setAccessible(true);
+                field.set(entity, resultSet.getObject("id"));
+                field.setAccessible(false);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     public void update(Object entity) {
+        try (Statement statement = dataSource.getConnection().createStatement()) {
+            StringBuilder sb = new StringBuilder();
+            String id = "";
 
+            for (Field f : entity.getClass().getDeclaredFields()) {
+                f.setAccessible(true);
+                if (f.getAnnotation(OrmColumn.class) != null) {
+                    sb.append(f.getAnnotation(OrmColumn.class).name());
+                    sb.append(" = ");
+                    if (f.getType().getSimpleName().equals("String")) {
+                        sb.append("'" + f.get(entity).toString() + "'");
+                    } else {
+                        sb.append(f.get(entity).toString());
+                    }
+                    sb.append(", ");
+
+                } else if (f.getAnnotation(OrmColumnId.class) != null) {
+                    id = f.get(entity).toString();
+                }
+                f.setAccessible(false);
+            }
+            sb.deleteCharAt(sb.length() - 1);
+            sb.deleteCharAt(sb.length() - 1);
+
+            String query = "UPDATE " + entity.getClass().getAnnotation(OrmEntity.class).table()
+                    + " SET " + sb + " WHERE id = " + id;
+
+            System.out.println(query);
+            statement.execute(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public <T> T findById(Long id, Class<T> aClass) {
