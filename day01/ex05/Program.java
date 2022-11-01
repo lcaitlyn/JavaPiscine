@@ -6,7 +6,7 @@ public class Program {
     public static void main(String[] args) {
         Menu menu = null;
 
-        if (args.length == 2 && args[0].equals("--profile") && args[1].equals("=dev")) {
+        if (args.length == 1 && args[0].equals("--profile=dev")) {
             menu = new Menu(true);
         } else if (args.length != 0) {
             System.err.println("Wrong argumets!");
