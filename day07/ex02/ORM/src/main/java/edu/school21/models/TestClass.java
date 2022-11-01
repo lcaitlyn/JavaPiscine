@@ -22,4 +22,15 @@ public class TestClass {
     float aFloat;
     @OrmColumn(name = "double_test")
     double aDouble;
+
+    public TestClass(int id, String stringLength, String stringNoLength, int anInt, boolean aBoolean, long aLong, float aFloat, double aDouble) {
+        this.id = id;
+        this.stringLength = stringLength;
+        this.stringNoLength = stringNoLength;
+        this.anInt = anInt;
+        this.aBoolean = aBoolean;
+        this.aLong = aLong;
+        this.aFloat = aFloat;
+        this.aDouble = aDouble;
+    }
 }

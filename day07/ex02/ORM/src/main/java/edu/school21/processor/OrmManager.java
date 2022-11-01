@@ -1,6 +1,7 @@
 package edu.school21.processor;
 
 import com.google.auto.service.AutoService;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import com.zaxxer.hikari.HikariDataSource;
 import edu.school21.annotation.OrmColumn;
 import edu.school21.annotation.OrmColumnId;
@@ -17,6 +18,7 @@ import javax.sql.DataSource;
 import java.io.*;
 import java.lang.reflect.Field;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ public class OrmManager extends AbstractProcessor {
     final String BOOLEAN_FIELD_QUERY_FORM = "%s BOOLEAN";
     final String CLOSE_TABLE_QUERY = ");\n\n";
 
-    final String SAVE_QUERY = "insert into ? "
+    final String SAVE_QUERY = "insert into ? (?) values (?);";
 
     DataSource dataSource;
     public OrmManager() {}
@@ -82,7 +84,7 @@ public class OrmManager extends AbstractProcessor {
         return false;
     }
 
-    public String getEntityFieldType(Field type) {
+    private String getEntityFieldType(Field type) {
         switch (type.getType().getSimpleName().toLowerCase()) {
             case "string":
                 return VARCHAR_NO_LENGTH_FIELD_QUERY_FORM;
@@ -101,7 +103,7 @@ public class OrmManager extends AbstractProcessor {
         return null;
     }
 
-    public String getColumnQueryFromElement(Element element, Field field) {
+    private String getColumnQueryFromElement(Element element, Field field) {
         OrmColumnId ormColumnId = element.getAnnotation(OrmColumnId.class);
         OrmColumn ormColumn = element.getAnnotation(OrmColumn.class);
 
@@ -155,8 +157,48 @@ public class OrmManager extends AbstractProcessor {
     }
 
     public void save(Object entity) {
-        try (dataSource.getConnection().prepareStatement()) {
+        try (PreparedStatement statement = dataSource.getConnection().prepareStatement(SAVE_QUERY)) {
+//
+            statement.setString(1, entity.getClass().getAnnotation(OrmEntity.class).table());
 
+            String typesBuilder = "";
+            String valuesBuilder = "";
+
+            for (Field f : entity.getClass().getDeclaredFields()) {
+                if (f.getAnnotation(OrmColumn.class) != null) {
+                    typesBuilder += f.getAnnotation(OrmColumn.class).name() + ", ";
+                }
+    //            System.out.println(f.getAnnotation(OrmColumn.class).name());
+    //            System.out.println(f.getAnnotation(OrmColumn.class).name());
+    //            valuesBuilder += f.getAnnotation(OrmColumn.class).name() + ", ";
+            }
+            typesBuilder = typesBuilder.substring(0, typesBuilder.length() - 2);
+
+            System.out.println(typesBuilder);
+
+            for (Field f : entity.getClass().getDeclaredFields()) {
+                if (f.getAnnotation(OrmColumn.class) != null) {
+                    f.setAccessible(true);
+                    if (f.getType().getSimpleName().toString().equals("String")) {
+                        valuesBuilder += "'" + f.get(entity).toString() + "'";
+                    } else {
+                        valuesBuilder += f.get(entity).toString();
+                    }
+                    valuesBuilder += ", ";
+                    f.setAccessible(false);
+                }
+            }
+            valuesBuilder = valuesBuilder.substring(0, valuesBuilder.length() - 2);
+
+            System.out.println(valuesBuilder);
+
+            statement.setNString(2, typesBuilder);
+            statement.setNString(3, valuesBuilder);
+
+            statement.execute();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     public void update(Object entity) {

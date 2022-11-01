@@ -12,4 +12,10 @@ public class Car {
     String name;
     @OrmColumn(name = "speed")
     Integer speed;
+
+    public Car(int id, String name, Integer speed) {
+        this.id = id;
+        this.name = name;
+        this.speed = speed;
+    }
 }
