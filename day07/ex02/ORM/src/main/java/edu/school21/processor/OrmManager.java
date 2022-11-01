@@ -43,6 +43,7 @@ public class OrmManager extends AbstractProcessor {
 
     final String SAVE_QUERY = "insert into ? (?) values (?);";
     final String UPDATE_QUERY = "update ? set ? where id = ?";
+    final String FIND_BY_ID_QUERY = "select * from ? where id = ?";
 
     DataSource dataSource;
     public OrmManager() {}
@@ -237,6 +238,33 @@ public class OrmManager extends AbstractProcessor {
     }
 
     public <T> T findById(Long id, Class<T> aClass) {
-        return null;
+        крч сделаешь чтобы newInstance было
+        и потом новый класс вернешь. давай удачи)
+
+
+
+
+//        try (Statement statement = dataSource.getConnection().createStatement()) {
+//            String query =
+//                    "SELECT * FROM " + aClass.getAnnotation(OrmEntity.class).table()
+//                    + " WHERE id = " + id;
+//
+//            statement.execute(query);
+//            ResultSet resultSet = statement.getResultSet();
+//
+//            for (Field f : aClass.getDeclaredFields()) {
+//                resultSet.next();
+//                f.setAccessible(true);
+//
+//                if (f.getAnnotation(OrmColumnId.class) != null) {
+//                    f.set(aClass, resultSet.getObject(f.getName()));
+//                }
+//
+//                f.setAccessible(false);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return  null;
     }
 }
