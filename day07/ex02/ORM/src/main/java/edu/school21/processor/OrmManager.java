@@ -193,7 +193,6 @@ public class OrmManager extends AbstractProcessor {
 
             if (resultSet.next()) {
                 Field field = entity.getClass().getDeclaredField("id");
-                System.out.println(field.getName());
                 field.setAccessible(true);
                 field.set(entity, resultSet.getObject("id"));
                 field.setAccessible(false);
@@ -232,39 +231,46 @@ public class OrmManager extends AbstractProcessor {
 
             System.out.println(query);
             statement.execute(query);
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public <T> T findById(Long id, Class<T> aClass) {
-        крч сделаешь чтобы newInstance было
-        и потом новый класс вернешь. давай удачи)
+        try (Connection connection = dataSource.getConnection();
+                Statement statement = connection.createStatement()) {
+            String query =
+                    "SELECT * FROM " + aClass.getAnnotation(OrmEntity.class).table()
+                    + " WHERE id = " + id;
 
+            System.out.println(query);
+            statement.execute(query);
+            ResultSet resultSet = statement.getResultSet();
 
+            if (!resultSet.next())
+                throw new SQLException("Error! User (" + id + ") Not Found!");
 
+            // создаем новый класс и накачиваем его данными
+            T result = aClass.newInstance();
+            for (Field f : result.getClass().getDeclaredFields()) {
+                f.setAccessible(true);
 
-//        try (Statement statement = dataSource.getConnection().createStatement()) {
-//            String query =
-//                    "SELECT * FROM " + aClass.getAnnotation(OrmEntity.class).table()
-//                    + " WHERE id = " + id;
-//
-//            statement.execute(query);
-//            ResultSet resultSet = statement.getResultSet();
-//
-//            for (Field f : aClass.getDeclaredFields()) {
-//                resultSet.next();
-//                f.setAccessible(true);
-//
-//                if (f.getAnnotation(OrmColumnId.class) != null) {
-//                    f.set(aClass, resultSet.getObject(f.getName()));
-//                }
-//
-//                f.setAccessible(false);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return  null;
+                if (f.getAnnotation(OrmColumnId.class) != null) {
+                    f.set(result, resultSet.getObject(f.getName()));
+                } else if (f.getAnnotation(OrmColumn.class) != null) {
+                    OrmColumn ormColumn = f.getAnnotation(OrmColumn.class);
+                    f.set(result, resultSet.getObject(ormColumn.name()));
+                }
+
+                f.setAccessible(false);
+            }
+            connection.close();
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  null;
     }
 }

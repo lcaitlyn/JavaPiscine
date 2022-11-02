@@ -3,7 +3,6 @@ package edu.school21.processor;
 import com.google.auto.service.AutoService;
 import edu.school21.annotation.HtmlForm;
 import edu.school21.annotation.HtmlInput;
-import javafx.scene.shape.Path;
 
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;
@@ -12,12 +11,6 @@ import javax.lang.model.element.TypeElement;
 import javax.tools.StandardLocation;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.file.Paths;
-import java.util.List;
 import java.util.Set;
 
 
@@ -60,9 +53,7 @@ public class HtmlProcessor extends AbstractProcessor {
             fileWriter.write(SUBMIT_BUTTON);
             fileWriter.write(FORM_CLOSER);
 
-
             fileWriter.flush();
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

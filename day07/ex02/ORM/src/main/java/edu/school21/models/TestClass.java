@@ -23,6 +23,9 @@ public class TestClass {
     @OrmColumn(name = "double_test")
     double aDouble;
 
+    public TestClass() {
+    }
+
     public TestClass(int id, String stringLength, String stringNoLength, int anInt, boolean aBoolean, long aLong, float aFloat, double aDouble) {
         this.id = id;
         this.stringLength = stringLength;
@@ -32,5 +35,19 @@ public class TestClass {
         this.aLong = aLong;
         this.aFloat = aFloat;
         this.aDouble = aDouble;
+    }
+
+    @Override
+    public String toString() {
+        return "TestClass{" +
+                "id=" + id +
+                ", stringLength='" + stringLength + '\'' +
+                ", stringNoLength='" + stringNoLength + '\'' +
+                ", anInt=" + anInt +
+                ", aBoolean=" + aBoolean +
+                ", aLong=" + aLong +
+                ", aFloat=" + aFloat +
+                ", aDouble=" + aDouble +
+                '}';
     }
 }
