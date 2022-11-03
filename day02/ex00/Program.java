@@ -12,7 +12,7 @@ public class Program {
         File outputFile = new File("result.txt");
 
         outputFile.delete();
-        signatureList.createSignatures("/Users/lcaitlyn/Desktop/signatures.txt");
+        signatureList.createSignatures("./signatures.txt");
         String fileName = scanner.nextLine().trim().replaceAll("\"", "");
 
         while (!fileName.equals("42")) {

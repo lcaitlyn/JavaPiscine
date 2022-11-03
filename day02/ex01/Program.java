@@ -114,7 +114,7 @@ public class Program {
         int [] A = getVector(file1, collection);
         int [] B = getVector(file2, collection);
 
-        System.out.printf("Similarity = %.3f", numerator(A, B) / denominator(A, B));
+        System.out.printf("Similarity = %.3f\n", numerator(A, B) / denominator(A, B));
         writeDictionary(collection);
     }
 }
