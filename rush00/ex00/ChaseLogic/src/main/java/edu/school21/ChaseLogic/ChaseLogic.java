@@ -20,6 +20,9 @@ public class ChaseLogic {
     }
 
     public String getWay(GameObjectInterface [][] gameObjects) {
+        // да да время коментов
+        // ну че что нужно замутить. нужно сделать проходку + пофиксить врагов
+
         map = new char[gameObjects.length][gameObjects.length];
         for (int i = 0; i < gameObjects.length; i++) {
             for (int j = 0; j < gameObjects.length; j++) {
