@@ -1,4 +1,4 @@
-package main.java.edu.school21.chat.exception;
+package edu.school21.chat.exception;
 
 public class NotSavedSubEntityException extends RuntimeException {
     @Override

@@ -31,6 +31,5 @@ public class Program {
         List<User> users = usersRepositoryJdbc.findAll(3, 4);
 
         System.out.println(users);
-
     }
 }

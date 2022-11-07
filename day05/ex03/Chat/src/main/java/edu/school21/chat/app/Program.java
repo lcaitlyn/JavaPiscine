@@ -27,9 +27,7 @@ public class Program {
 
         Optional<Message> optionalMessage = messagesRepositoryJdbc.findById(3L);
 
-
         System.out.println();
-
 
         if (optionalMessage.isPresent()) {
             Message message = optionalMessage.get();
@@ -57,7 +55,5 @@ public class Program {
         } else {
             System.err.println("Сообщение не найдено!");
         }
-
-
     }
 }

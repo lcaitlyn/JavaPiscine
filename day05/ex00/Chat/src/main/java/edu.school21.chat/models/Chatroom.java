@@ -1,4 +1,4 @@
-package main.java.edu.school21.chat.models;
+package edu.school21.chat.models;
 
 import java.util.*;
 
@@ -23,11 +23,7 @@ public class Chatroom {
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + chatOwner;
-        result = 31 * result + (messageList != null ? messageList.hashCode() : 0);
-        return result;
+        return Objects.hash(id, name, chatOwner, messageList);
     }
 
     @Override
