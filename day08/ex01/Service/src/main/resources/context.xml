@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <context:property-placeholder location="db.properties"/>
 
+    <bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <property name="jdbcUrl" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
+
+    <bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
+
+    <bean id="usersRepositoryJdbcImpl" class="school21.spring.service.repositories.UsersRepositoryJdbcImpl">
+        <constructor-arg name="dataSource" ref="hikariDataSource"/>
+    </bean>
+
+    <bean id="usersRepositoryJdbcTemplateImpl" class="school21.spring.service.repositories.UsersRepositoryJdbcTemplateImpl">
+        <constructor-arg name="dataSource" ref="driverManagerDataSource"/>
+    </bean>
 
 </beans>
