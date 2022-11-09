@@ -31,7 +31,8 @@ public class UsersRepositoryJdbcImpl implements UsersRepository {
             if (resultSet.next()) {
                 return new User(
                         resultSet.getLong("id"),
-                        resultSet.getString("email")
+                        resultSet.getString("email"),
+                        resultSet.getString("password")
                 );
             }
         } catch (Exception e) {
@@ -52,7 +53,8 @@ public class UsersRepositoryJdbcImpl implements UsersRepository {
             while (resultSet.next()) {
                 userList.add(new User(
                         resultSet.getLong("id"),
-                        resultSet.getString("email")
+                        resultSet.getString("email"),
+                        resultSet.getString("password")
                 ));
             }
             return userList;
@@ -64,13 +66,13 @@ public class UsersRepositoryJdbcImpl implements UsersRepository {
 
     @Override
     public void save(User entity) {
-        String query = "insert into users (id, email) values (?, ?)";
+        String query = "insert into users (email, password) values (?, ?)";
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
 
-            statement.setLong(1, entity.getId());
-            statement.setString(2, entity.getEmail());
+            statement.setString(1, entity.getEmail());
+            statement.setString(2, entity.getPassword());
 
             statement.execute();
         } catch (Exception e) {
@@ -118,7 +120,8 @@ public class UsersRepositoryJdbcImpl implements UsersRepository {
             if (resultSet.next()) {
                 return Optional.of(new User(
                         resultSet.getLong("id"),
-                        resultSet.getString("email")
+                        resultSet.getString("email"),
+                        resultSet.getString("password")
                 ));
             }
         } catch (Exception e) {
