@@ -37,32 +37,4 @@ public class TestApplicationConfig {
     UsersService usersServiceJdbcTemplate(DataSource dataSource) {
         return new UsersServiceImpl(new UsersRepositoryJdbcTemplateImpl(dataSource));
     }
-
-//    @Bean("hsqlDataSource")
-//    DataSource dataSource() {
-//        return new EmbeddedDatabaseBuilder()
-//                .setType(EmbeddedDatabaseType.HSQL)
-//                .addScript("table.sql")
-//                .build();
-//    }
-//
-//    @Bean("usersRepositoryJdbc")
-//    UsersRepositoryJdbcImpl usersRepositoryJdbc() {
-//        return new UsersRepositoryJdbcImpl(dataSource());
-//    }
-//
-//    @Bean("usersRepositoryJdbcTemplate")
-//    UsersRepositoryJdbcTemplateImpl usersRepositoryJdbcTemplate() {
-//        return new UsersRepositoryJdbcTemplateImpl(dataSource());
-//    }
-//
-//    @Bean("usersServiceJdbc")
-//    UsersServiceImpl usersServiceJdbc() {
-//        return new UsersServiceImpl(usersRepositoryJdbc());
-//    }
-//
-//    @Bean("usersServiceJdbcTemplate")
-//    UsersServiceImpl usersServiceJdbcTemplate() {
-//        return new UsersServiceImpl(usersRepositoryJdbcTemplate());
-//    }
 }
