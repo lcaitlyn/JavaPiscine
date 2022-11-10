@@ -111,11 +111,14 @@ public class UsersRepositoryJdbcImpl implements UsersRepository {
 
     @Override
     public Optional<User> findByEmail(String email) {
-        String query = "select * from users where email = ";
+        String query = "select * from users where email = ?";
 
         try (Connection connection = dataSource.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(query + email)) {
+             PreparedStatement statement = connection.prepareStatement(query)) {
+             statement.setString(1, email);
+             statement.execute();
+
+             ResultSet resultSet = statement.getResultSet();
 
             if (resultSet.next()) {
                 return Optional.of(new User(

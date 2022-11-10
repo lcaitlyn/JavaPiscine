@@ -13,11 +13,14 @@ import school21.spring.service.services.UsersServiceImpl;
 public class Main {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-//        UsersRepository usersRepository = applicationContext.getBean("usersRepositoryJdbcImpl", UsersRepositoryJdbcImpl.class);
-//        System.out.println(usersRepository.findAll());
-//        usersRepository = applicationContext.getBean("usersRepositoryJdbcTemplateImpl", UsersRepositoryJdbcTemplateImpl.class);
-//        System.out.println(usersRepository.findAll());
         UsersServiceImpl usersService = applicationContext.getBean("usersServiceImpl", UsersServiceImpl.class);
-        System.out.println(usersService.signUp("test@mail.ru"));
+        System.out.println(usersService.signUp("test1@mail.ru"));
+        System.out.println(usersService.signUp("test2@mail.ru"));
+        System.out.println(usersService.signUp("test3@mail.ru"));
+        try {
+            System.out.println(usersService.signUp("test3@mail.ru"));
+        } catch (Exception e) {
+            System.err.println("Нельзя добавить! Так как такой email существуют");
+        }
     }
 }

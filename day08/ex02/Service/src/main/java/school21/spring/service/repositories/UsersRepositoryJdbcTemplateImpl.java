@@ -12,7 +12,7 @@ import javax.xml.crypto.Data;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Component("usersRepositoryJdbcTemplateImpl")
 public class UsersRepositoryJdbcTemplateImpl implements UsersRepository{
     private final JdbcTemplate jdbcTemplate;
 
@@ -32,17 +32,16 @@ public class UsersRepositoryJdbcTemplateImpl implements UsersRepository{
         String alQuery = "SELECT * FROM users";
         List<User> users = jdbcTemplate.query(alQuery, new BeanPropertyRowMapper<>(User.class));
         return users.isEmpty() ? null : users;
-//        return jdbcTemplate.query("SELECT * FROM users", new BeanPropertyRowMapper<>(User.class));
     }
 
     @Override
     public void save(User entity) {
-        jdbcTemplate.update("INSERT INTO users (email) VALUES (?)", entity.getEmail());
+        jdbcTemplate.update("INSERT INTO users (email, password) VALUES (?, ?)", entity.getEmail(), entity.getPassword());
     }
 
     @Override
     public void update(User entity) {
-        jdbcTemplate.update("UPDATE users SET email=? WHERE id = ?", entity.getEmail(), entity.getId());
+        jdbcTemplate.update("UPDATE users SET email=?, password=? WHERE id = ?", entity.getEmail(), entity.getPassword(), entity.getId());
     }
 
     @Override
