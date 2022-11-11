@@ -1,0 +1,10 @@
+/Users/lcaitlyn/Desktop/JavaPiscine/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/config/SocketsApplicationConfig.java
+/Users/lcaitlyn/Desktop/JavaPiscine/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/repositories/UsersRepositoryImpl.java
+/Users/lcaitlyn/Desktop/JavaPiscine/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/application/Main.java
+/Users/lcaitlyn/Desktop/JavaPiscine/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/services/UsersService.java
+/Users/lcaitlyn/Desktop/JavaPiscine/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/services/UsersServiceImpl.java
+/Users/lcaitlyn/Desktop/JavaPiscine/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/models/User.java
+/Users/lcaitlyn/Desktop/JavaPiscine/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/server/Server.java
+/Users/lcaitlyn/Desktop/JavaPiscine/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/repositories/CrudRepository.java
+/Users/lcaitlyn/Desktop/JavaPiscine/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/repositories/UsersRepository.java
+/Users/lcaitlyn/Desktop/JavaPiscine/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/server/Client.java
