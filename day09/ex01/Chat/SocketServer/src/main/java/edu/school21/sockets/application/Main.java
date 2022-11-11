@@ -2,6 +2,7 @@ package edu.school21.sockets.application;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameters;
+import edu.school21.sockets.server.Client;
 import edu.school21.sockets.server.Server;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -20,5 +21,13 @@ public class Main {
 
         JCommander.newBuilder().addObject(server).build().parse(args);
         server.start();
+//        Client client = new Client(null);
+//        client.start();
+//        try {
+//            client.join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(Thread.currentThread().getName());
     }
 }

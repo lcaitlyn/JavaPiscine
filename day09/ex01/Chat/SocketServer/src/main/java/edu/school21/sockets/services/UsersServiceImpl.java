@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class UsersServiceImpl implements UsersService {
     private final UsersRepository usersRepository;
@@ -17,17 +19,34 @@ public class UsersServiceImpl implements UsersService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @Override
-    public void signUp(String username, String password) {
+    private void checkValigArgs(String username, String password) {
         if (username == null || username.isEmpty())
             throw new RuntimeException("Error! Username can't be null or empty!");
 
         if (password == null || password.isEmpty())
             throw new RuntimeException("Error! Password can't be null or empty!");
+    }
+
+    @Override
+    public void signUp(String username, String password) {
+        checkValigArgs(username, password);
 
         if (usersRepository.findByUsername(username).isPresent())
             throw new RuntimeException("Error! Username is already exists!");
 
         usersRepository.save(new User(username, passwordEncoder.encode(password)));
+    }
+
+    @Override
+    public User signIn(String username, String password) {
+        checkValigArgs(username, password);
+
+        if (!usersRepository.findByUsername(username).isPresent())
+            throw new RuntimeException("Error! Username is not exists!");
+
+        User user = usersRepository.findByUsername(username).get();
+
+        if (user.getPassword() != password)
+            throw new RuntimeException("Error! Wrong password");
     }
 }

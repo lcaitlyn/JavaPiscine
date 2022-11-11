@@ -101,39 +101,40 @@ public class Server {
 //                new Thread(new Runnable() {
 //                    @Override
 //                    public void run() {
-//                        Client client = new Client(socket);
+                        Client client = new Client(socket);
 //                        client.run();
 //                    }
 //                });
 //                new Client(socket).run();
 //                new Thread(client);
+                client.start();
 //                client.run();
 //                client.join();
-                new Thread(() -> {
-                    try {
-                        System.out.println(Thread.currentThread().getName());
-                        writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-                        reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
-                        writeToClient("Hello from Server!");
-
-                        while (true) {
-                            String message = reader.readLine();
-                            if (message.equalsIgnoreCase("signUp")) {
-                                signUp();
-                                break;
-                            } else if (message.equalsIgnoreCase("singIn")) {
-                                signIn();
-                                break;
-                            }
-                            else {
-                                writeToClient("Wrong command! Try \'signUp\'");
-                            }
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                });
+//                new Thread(() -> {
+//                    try {
+//                        System.out.println(Thread.currentThread().getName());
+//                        writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+//                        reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+//
+//                        writeToClient("Hello from Server!");
+//
+//                        while (true) {
+//                            String message = reader.readLine();
+//                            if (message.equalsIgnoreCase("signUp")) {
+//                                signUp();
+//                                break;
+//                            } else if (message.equalsIgnoreCase("singIn")) {
+//                                signIn();
+//                                break;
+//                            }
+//                            else {
+//                                writeToClient("Wrong command! Try \'signUp\'");
+//                            }
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                });
 
 //                socket.close();
             }

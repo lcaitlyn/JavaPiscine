@@ -1,5 +1,6 @@
 package edu.school21.sockets.server;
 
+import edu.school21.sockets.models.User;
 import edu.school21.sockets.services.UsersService;
 import edu.school21.sockets.services.UsersServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Client implements Runnable {
+public class Client extends Thread {
     private Socket socket;
     private UsersServiceImpl usersService;
     private ServerSocket serverSocket;
@@ -21,6 +22,7 @@ public class Client implements Runnable {
 
     @Override
     synchronized public void run() {
+//        System.out.println(Thread.currentThread().getName());
         try {
             writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -88,6 +90,7 @@ public class Client implements Runnable {
             password = reader.readLine();
 
             try {
+                User user = usersService
                 usersService.signUp(username, password);
                 writeToClient("Successful!");
             } catch (RuntimeException e) {
