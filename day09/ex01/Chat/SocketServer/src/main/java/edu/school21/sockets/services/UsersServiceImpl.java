@@ -19,7 +19,7 @@ public class UsersServiceImpl implements UsersService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    private void checkValigArgs(String username, String password) {
+    private void checkValidArgs(String username, String password) {
         if (username == null || username.isEmpty())
             throw new RuntimeException("Error! Username can't be null or empty!");
 
@@ -29,7 +29,7 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public void signUp(String username, String password) {
-        checkValigArgs(username, password);
+        checkValidArgs(username, password);
 
         if (usersRepository.findByUsername(username).isPresent())
             throw new RuntimeException("Error! Username is already exists!");
@@ -39,7 +39,7 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public User signIn(String username, String password) {
-        checkValigArgs(username, password);
+        checkValidArgs(username, password);
 
         if (!usersRepository.findByUsername(username).isPresent())
             throw new RuntimeException("Error! Username is not exists!");
@@ -48,5 +48,7 @@ public class UsersServiceImpl implements UsersService {
 
         if (user.getPassword() != password)
             throw new RuntimeException("Error! Wrong password");
+
+        return null;
     }
 }

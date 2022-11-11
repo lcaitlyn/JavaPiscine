@@ -1,5 +1,6 @@
 package edu.school21.sockets.server;
 
+import edu.school21.sockets.models.Message;
 import edu.school21.sockets.models.User;
 import edu.school21.sockets.services.UsersService;
 import edu.school21.sockets.services.UsersServiceImpl;
@@ -8,46 +9,59 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.time.LocalDateTime;
+import java.util.Scanner;
 
 public class Client extends Thread {
     private Socket socket;
     private UsersServiceImpl usersService;
-    private ServerSocket serverSocket;
     private BufferedWriter writer;
     private BufferedReader reader;
+    private User user;
 
     public Client(Socket socket) {
         this.socket = socket;
     }
 
+    @Autowired
+    public void setUsersService(UsersServiceImpl usersService) {
+        this.usersService = usersService;
+    }
+
     @Override
     synchronized public void run() {
-//        System.out.println(Thread.currentThread().getName());
         try {
             writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            writeToClient("Hello from Server!" + Thread.currentThread().getName());
+            writeToClient("Hello from Server! " + Thread.currentThread().getName());
 
             while (true) {
-                String message = reader.readLine();
-                if (message.equalsIgnoreCase("signUp")) {
-                    signUp();
-                    break;
-                } else if (message.equalsIgnoreCase("singIn")) {
-                    signIn();
-                    break;
+                switch (reader.readLine().toLowerCase()) {
+                    case "signup":
+                        signUp();
+                    case "signin":
+                        signIn();
+                        break;
+                    case "exit":
+                        writeToClient("You have left the chat");
+                        return;
+                    default:
+                        writeToClient("Wrong command! Try 'signUp / signIn / exit'");
                 }
-                else {
-                    writeToClient("Wrong command! Try \'signUp\'");
-                }
+                break;
             }
-            socket.close();
+
+            Thread receiver = startReceiveMessages();
+            receiver.start();
+            startSendMessages();
+            receiver.interrupt();
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
-                serverSocket.close();
+                socket.close();
                 writer.close();
                 reader.close();
             } catch (Exception e) {
@@ -56,52 +70,60 @@ public class Client extends Thread {
         }
     }
 
-    private void signUp() {
-        String username;
-        String password;
-
+    private String getInfo(String info) {
         try {
-            writeToClient("Enter username:");
-            username = reader.readLine();
+            writeToClient(String.format("Enter %s:", info));
+            return reader.readLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-            writeToClient("Enter password:");
-            password = reader.readLine();
-
-            try {
-                usersService.signUp(username, password);
-                writeToClient("Successful!");
-            } catch (RuntimeException e) {
-                writeToClient(e.getMessage());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    private void signUp() {
+        try {
+            writeToClient("Registration...");
+            usersService.signUp(getInfo("username"), getInfo("password"));
+            writeToClient("Successful sign Up!");
+        } catch (RuntimeException e) {
+            writeToClient(e.getMessage());
         }
     }
 
     private void signIn() {
-        String username;
-        String password;
-
         try {
-            writeToClient("Enter username:");
-            username = reader.readLine();
-
-            writeToClient("Enter password:");
-            password = reader.readLine();
-
-            try {
-                User user = usersService
-                usersService.signUp(username, password);
-                writeToClient("Successful!");
-            } catch (RuntimeException e) {
-                writeToClient(e.getMessage());
-            }
+            writeToClient("Logging in...");
+            user = usersService.signIn(getInfo("username"), getInfo("password"));
+            writeToClient("Successful sign In!");
         } catch (Exception e) {
-            e.printStackTrace();
+            writeToClient(e.getMessage());
         }
     }
 
-    private void writeToClient(String message) {
+    private Thread startReceiveMessages() {
+        return new Thread(() -> {
+            try {
+                System.out.println(reader.readLine());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    private void startSendMessages() {
+        try (Scanner scanner = new Scanner(System.in)) {
+            String text = "";
+
+            writeToClient("Start messaging");
+
+            while (!text.equalsIgnoreCase("exit")) {
+                text = scanner.nextLine();
+                Message message = new Message(text, user, LocalDateTime.now());
+                Server.sendMessageToAllClients(message);
+            }
+        }
+    }
+
+    public void writeToClient(String message) {
         try {
             writer.write(message + "\n");
             writer.flush();
@@ -110,8 +132,7 @@ public class Client extends Thread {
         }
     }
 
-    @Autowired
-    public void setUsersService(UsersServiceImpl usersService) {
-        this.usersService = usersService;
+    public Socket getSocket() {
+        return socket;
     }
 }

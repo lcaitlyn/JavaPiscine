@@ -21,13 +21,5 @@ public class Main {
 
         JCommander.newBuilder().addObject(server).build().parse(args);
         server.start();
-//        Client client = new Client(null);
-//        client.start();
-//        try {
-//            client.join();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println(Thread.currentThread().getName());
     }
 }

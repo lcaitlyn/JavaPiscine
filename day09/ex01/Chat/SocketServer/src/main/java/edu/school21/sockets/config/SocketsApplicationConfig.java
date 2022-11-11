@@ -1,17 +1,17 @@
 package edu.school21.sockets.config;
 
-import com.beust.jcommander.Parameter;
-import com.beust.jcommander.Parameters;
 import com.zaxxer.hikari.HikariDataSource;
+import edu.school21.sockets.server.Client;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.net.ServerSocket;
+import java.util.LinkedList;
+import java.util.List;
 
 @Configuration
 @PropertySource("classpath:db.properties")
@@ -44,5 +44,10 @@ public class SocketsApplicationConfig {
     @Bean
     BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    LinkedList<Client> list() {
+        return new LinkedList<>();
     }
 }
