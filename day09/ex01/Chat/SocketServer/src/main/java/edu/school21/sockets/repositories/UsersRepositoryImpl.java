@@ -22,35 +22,35 @@ public class UsersRepositoryImpl implements UsersRepository{
 
     @Override
     public User findById(Long id) {
-        return jdbcTemplate.query("SELECT * FROM users WHERE id = ?", new Object[]{id}, new BeanPropertyRowMapper<>(User.class))
+        return jdbcTemplate.query("SELECT * FROM chat.users WHERE id = ?", new Object[]{id}, new BeanPropertyRowMapper<>(User.class))
                 .stream().findAny().orElse(null);
     }
 
     @Override
     public List<User> findAll() {
-        String alQuery = "SELECT * FROM users";
+        String alQuery = "SELECT * FROM chat.users";
         List<User> users = jdbcTemplate.query(alQuery, new BeanPropertyRowMapper<>(User.class));
         return users.isEmpty() ? null : users;
     }
 
     @Override
     public void save(User entity) {
-        jdbcTemplate.update("INSERT INTO users (username, password) VALUES (?, ?)", entity.getUsername(), entity.getPassword());
+        jdbcTemplate.update("INSERT INTO chat.users (username, password) VALUES (?, ?)", entity.getUsername(), entity.getPassword());
     }
 
     @Override
     public void update(User entity) {
-        jdbcTemplate.update("UPDATE users SET username=?, password=? WHERE id = ?", entity.getUsername(), entity.getPassword(), entity.getId());
+        jdbcTemplate.update("UPDATE chat.users SET username=?, password=? WHERE id = ?", entity.getUsername(), entity.getPassword(), entity.getId());
     }
 
     @Override
     public void delete(Long id) {
-        jdbcTemplate.update("DELETE FROM users WHERE id = ?", id);
+        jdbcTemplate.update("DELETE FROM chat.users WHERE id = ?", id);
     }
 
     @Override
     public Optional<User> findByUsername(String username) {
-        return Optional.ofNullable(jdbcTemplate.query("SELECT * FROM users WHERE username = ?", new Object[]{username}, new BeanPropertyRowMapper<>(User.class))
+        return Optional.ofNullable(jdbcTemplate.query("SELECT * FROM chat.users WHERE username = ?", new Object[]{username}, new BeanPropertyRowMapper<>(User.class))
                 .stream().findAny().orElse(null));
     }
 }

@@ -46,6 +46,8 @@ public class UsersServiceImpl implements UsersService {
 
         User user = usersRepository.findByUsername(username).get();
 
+        System.out.println(user.getPassword());
+
         if (user.getPassword() != password)
             throw new RuntimeException("Error! Wrong password");
 

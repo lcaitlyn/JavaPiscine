@@ -29,6 +29,12 @@ public class Server {
     private ServerSocket serverSocket;
     private static MessageRepositoryImpl messageRepository;
     private static LinkedList<Client> list;
+    private UsersService usersService;
+
+    @Autowired
+    public Server(UsersService usersService) {
+        this.usersService = usersService;
+    }
 
     @Autowired
     public static void setMessageRepository(MessageRepositoryImpl messageRepository) {
@@ -41,9 +47,9 @@ public class Server {
             System.out.println(Thread.currentThread().getName());
             while (true) {
                 Socket socket = serverSocket.accept();
-                Client client = new Client(socket);
+                Client client = new Client(socket, usersService);
                 client.start();
-                list.add(client);
+//                list.add(client);
             }
         } catch (Exception e) {
             e.printStackTrace();

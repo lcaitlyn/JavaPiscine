@@ -14,13 +14,14 @@ import java.util.Scanner;
 
 public class Client extends Thread {
     private Socket socket;
-    private UsersServiceImpl usersService;
+    private UsersService usersService;
     private BufferedWriter writer;
     private BufferedReader reader;
     private User user;
 
-    public Client(Socket socket) {
+    public Client(Socket socket, UsersService usersService) {
         this.socket = socket;
+        this.usersService = usersService;
     }
 
     @Autowired
@@ -42,6 +43,10 @@ public class Client extends Thread {
                         signUp();
                     case "signin":
                         signIn();
+                        Thread receiver = startReceiveMessages();
+                        receiver.start();
+                        startSendMessages();
+                        receiver.interrupt();
                         break;
                     case "exit":
                         writeToClient("You have left the chat");
@@ -49,13 +54,7 @@ public class Client extends Thread {
                     default:
                         writeToClient("Wrong command! Try 'signUp / signIn / exit'");
                 }
-                break;
             }
-
-            Thread receiver = startReceiveMessages();
-            receiver.start();
-            startSendMessages();
-            receiver.interrupt();
 
         } catch (Exception e) {
             e.printStackTrace();
