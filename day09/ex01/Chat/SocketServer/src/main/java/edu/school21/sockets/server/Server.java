@@ -20,49 +20,36 @@ import java.net.Socket;
 import java.util.LinkedList;
 import java.util.List;
 
-@Component
 @Parameters(separators = "=")
 public class Server {
     @Parameter(names = "--port")
     private int port;
-
-    private ServerSocket serverSocket;
-    private static MessageRepositoryImpl messageRepository;
     private static LinkedList<Client> list;
     private UsersService usersService;
+    private MessageRepositoryImpl messageRepository;
 
-    @Autowired
-    public Server(UsersService usersService) {
+    public Server(UsersService usersService, MessageRepositoryImpl messageRepository) {
         this.usersService = usersService;
-    }
-
-    @Autowired
-    public static void setMessageRepository(MessageRepositoryImpl messageRepository) {
-        Server.messageRepository = messageRepository;
+        this.messageRepository = messageRepository;
+        list = new LinkedList<>();
     }
 
     public void start() {
         try {
-            serverSocket = new ServerSocket(port);
+            ServerSocket serverSocket = new ServerSocket(port);
             System.out.println(Thread.currentThread().getName());
             while (true) {
                 Socket socket = serverSocket.accept();
-                Client client = new Client(socket, usersService);
+                Client client = new Client(socket, usersService, messageRepository);
                 client.start();
-//                list.add(client);
+                list.add(client);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void sendMessageToAllClients(Message message) {
-        for (Client client : list) {
-            if (client.getSocket().isConnected()) {
-                messageRepository.save(message);
-                client.writeToClient(message.getText());
-            } else
-                list.remove(client);
-        }
+    public static LinkedList<Client> getList() {
+        return list;
     }
 }

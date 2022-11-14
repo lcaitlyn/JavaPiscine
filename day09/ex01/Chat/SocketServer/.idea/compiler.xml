@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Service" />
         <module name="SocketServer" />
+        <module name="socket-server" />
       </profile>
     </annotationProcessing>
   </component>

@@ -10,11 +10,9 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 import java.util.List;
 
-@Component
 public class MessageRepositoryImpl implements CrudRepository<Message> {
     private final JdbcTemplate jdbcTemplate;
 
-    @Autowired
     public MessageRepositoryImpl(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -34,7 +32,7 @@ public class MessageRepositoryImpl implements CrudRepository<Message> {
 
     @Override
     public void save(Message entity) {
-        jdbcTemplate.update("INSERT INTO chat.messages (message, sender, time) values (?, ?, ?) RETURNING id",
+        jdbcTemplate.update("INSERT INTO chat.messages (message, sender, time) values (?, ?, ?)",
                 entity.getText(), entity.getSender().getId(), entity.getTimestamp());
     }
 

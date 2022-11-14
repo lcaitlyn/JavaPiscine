@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7507c7c-bd5a-4f27-aefc-73a342eca685" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/application/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/config/SocketsApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/config/SocketsApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/server/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/server/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/services/UsersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/src/main/java/edu/school21/sockets/services/UsersServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/src/main/resources/table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/src/main/resources/table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/edu/school21/sockets/application/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/edu/school21/sockets/application/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/edu/school21/sockets/config/SocketsApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/edu/school21/sockets/config/SocketsApplicationConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/edu/school21/sockets/server/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/edu/school21/sockets/server/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/edu/school21/sockets/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/edu/school21/sockets/server/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/edu/school21/sockets/services/UsersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/edu/school21/sockets/services/UsersService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/edu/school21/sockets/services/UsersServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/edu/school21/sockets/services/UsersServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/classes/table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/day09/ex01/Chat/SocketServer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,18 +18,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2HPxrDSFyk2lv1oFFmPOMSJ7Xj4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/pc/Desktop/JavaPiscine/day09/ex01/Chat/SocketClient"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

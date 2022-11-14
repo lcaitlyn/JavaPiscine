@@ -8,12 +8,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-@Component
 public class UsersServiceImpl implements UsersService {
     private final UsersRepository usersRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    @Autowired
     public UsersServiceImpl(UsersRepository usersRepository, BCryptPasswordEncoder passwordEncoder) {
         this.usersRepository = usersRepository;
         this.passwordEncoder = passwordEncoder;
@@ -46,11 +44,10 @@ public class UsersServiceImpl implements UsersService {
 
         User user = usersRepository.findByUsername(username).get();
 
-        System.out.println(user.getPassword());
-
-        if (user.getPassword() != password)
+        if (passwordEncoder.matches(password, user.getPassword())) {
+            return user;
+        } else {
             throw new RuntimeException("Error! Wrong password");
-
-        return null;
+        }
     }
 }

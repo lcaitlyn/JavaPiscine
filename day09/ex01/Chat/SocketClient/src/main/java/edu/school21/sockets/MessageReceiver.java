@@ -13,17 +13,25 @@ public class MessageReceiver extends Thread {
 
     @Override
     public void run() {
+
         try {
             while (true) {
-                System.out.println(reader.readLine());
+                String text = reader.readLine();
+
+                if (text == null)
+                    break;
+
+                System.out.println(text);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             try {
                 reader.close();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+        } finally {
+            System.out.println("пока уебок. твой код шляпа");
         }
     }
 }
