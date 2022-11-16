@@ -1,6 +1,8 @@
 package edu.school21.sockets.models;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class Message {
     private Long id;
@@ -48,6 +50,7 @@ public class Message {
 
     @Override
     public String toString() {
-        return String.format("%s: %s [%s]", sender.getUsername(), getText(), getTimestamp());
+        return String.format("%s: %s [%s]", sender.getUsername(), getText(),
+                getTimestamp().format(DateTimeFormatter.ofPattern("HH:mm:ss, dd MMMM yyyy")));
     }
 }

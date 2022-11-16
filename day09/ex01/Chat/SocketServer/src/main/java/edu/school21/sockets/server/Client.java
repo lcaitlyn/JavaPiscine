@@ -21,6 +21,7 @@ public class Client extends Thread {
     private BufferedWriter writer;
     private BufferedReader reader;
     private User user;
+    private boolean isOnline = false;
 
     public Client(Socket socket, UsersService usersService, MessageRepositoryImpl messageRepository) {
         this.socket = socket;
@@ -34,7 +35,7 @@ public class Client extends Thread {
             writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            writeToClient("Hello from Server! " + Thread.currentThread().getName());
+            writeToClient("Hello from Server!");
             writeToClient("Available commands: signIn signUp exit");
 
             while (true) {
@@ -54,7 +55,6 @@ public class Client extends Thread {
                         writeToClient("Wrong command! Try 'signUp / signIn / exit'");
                 }
             }
-
         } catch (Exception e) {
             System.out.println("Client '" + Thread.currentThread().getName() + "' has disconnected");
         } finally {
@@ -94,6 +94,7 @@ public class Client extends Thread {
             writeToClient("Logging in...");
             user = usersService.signIn(getInfo("username"), getInfo("password"));
             writeToClient("Successful sign In!");
+            isOnline = true;
             return true;
         } catch (Exception e) {
             writeToClient(e.getMessage());
@@ -106,13 +107,17 @@ public class Client extends Thread {
             writeToClient("Start messaging...");
             String text = reader.readLine();
             while (!text.equalsIgnoreCase("exit")) {
-                messageRepository.save(new Message(text, user, LocalDateTime.now()));
+                Message message = new Message(text, user, LocalDateTime.now());
+                messageRepository.save(message);
 
                 for (Client c : Server.getList()) {
-                    if (c.getSocket().isConnected())
-                        c.writeToClient(text);
-                    else
+                    if (c.getSocket().isConnected()) { // проверка на рабочий сокет
+                        // проверка на то чтобы он был залогинен
+                        if (c.isOnline)
+                            c.writeToClient(message.toString());
+                    } else {
                         Server.getList().remove(c);
+                    }
                 }
                 text = reader.readLine();
             }

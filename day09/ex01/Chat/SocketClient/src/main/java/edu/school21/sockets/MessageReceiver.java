@@ -18,20 +18,21 @@ public class MessageReceiver extends Thread {
             while (true) {
                 String text = reader.readLine();
 
-                if (text == null)
-                    break;
+                if (text == null) {
+                    System.out.println("Server is down...");
+                    Main.sender.interrupt();
+                    System.exit(0);
+                }
 
                 System.out.println(text);
             }
         } catch (Exception e) {
-            e.printStackTrace();
             try {
                 reader.close();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
-        } finally {
-            System.out.println("пока уебок. твой код шляпа");
+            System.exit(0);
         }
     }
 }

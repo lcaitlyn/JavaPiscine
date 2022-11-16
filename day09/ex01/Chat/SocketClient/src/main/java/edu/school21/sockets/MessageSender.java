@@ -20,6 +20,10 @@ public class MessageSender extends Thread {
             writeToServer(text);
             text = scanner.nextLine();
         }
+        System.out.println("You have left the chat");
+
+        closeWriter();
+        System.exit(0);
     }
 
     private void writeToServer(String message) {
@@ -27,12 +31,17 @@ public class MessageSender extends Thread {
             writer.write(message + "\n");
             writer.flush();
         } catch (IOException e) {
-            e.printStackTrace();
-            try {
-                writer.close();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+            System.out.println("Server is down...");
+            closeWriter();
+            System.exit(0);
+        }
+    }
+
+    private void closeWriter() {
+        try {
+            writer.close();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
     }
 }

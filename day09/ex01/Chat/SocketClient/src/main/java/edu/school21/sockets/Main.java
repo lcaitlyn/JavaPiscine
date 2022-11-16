@@ -11,6 +11,8 @@ import java.net.Socket;
 public class Main {
     @Parameter(names = "--server-port")
     private static int port;
+    public static MessageReceiver receiver;
+    public static MessageSender sender;
 
     public static void main(String[] args) {
         if (args.length != 1)
@@ -18,10 +20,9 @@ public class Main {
 
         JCommander.newBuilder().addObject(new Main()).build().parse(args);
 
-        try {
-            Socket socket = new Socket("localhost", port);
-            MessageReceiver receiver = new MessageReceiver(new BufferedReader(new InputStreamReader(socket.getInputStream())));
-            MessageSender sender = new MessageSender(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())));
+        try (Socket socket = new Socket("localhost", port)) {
+            receiver = new MessageReceiver(new BufferedReader(new InputStreamReader(socket.getInputStream())));
+            sender = new MessageSender(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())));
 
             receiver.start();
             sender.start();
@@ -29,7 +30,7 @@ public class Main {
             receiver.join();
             sender.join();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Error! Server is not opened!");
         }
     }
 }

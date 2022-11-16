@@ -37,7 +37,9 @@ public class Server {
     public void start() {
         try {
             ServerSocket serverSocket = new ServerSocket(port);
-            System.out.println(Thread.currentThread().getName());
+
+            System.out.println("Server started...");
+
             while (true) {
                 Socket socket = serverSocket.accept();
                 Client client = new Client(socket, usersService, messageRepository);
