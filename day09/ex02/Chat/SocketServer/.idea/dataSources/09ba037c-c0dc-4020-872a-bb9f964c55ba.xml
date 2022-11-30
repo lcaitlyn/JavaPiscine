@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="postgres@localhost">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.43">
+    <root id="1">
+      <ServerVersion>14.1</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="lcaitlyn"/>
+    <database id="3" parent="1" name="postgres">
+      <Current>1</Current>
+    </database>
+    <database id="4" parent="1" name="template0"/>
+    <database id="5" parent="1" name="template1"/>
+    <schema id="6" parent="3" name="chat"/>
+    <schema id="7" parent="3" name="currencyexchanger"/>
+    <schema id="8" parent="3" name="information_schema"/>
+    <schema id="9" parent="3" name="pg_catalog"/>
+    <schema id="10" parent="3" name="public">
+      <Current>1</Current>
+    </schema>
+    <schema id="11" parent="3" name="servertanks"/>
+  </database-model>
+</dataSource>
