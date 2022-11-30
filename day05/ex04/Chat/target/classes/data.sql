@@ -1,0 +1,33 @@
+insert into chat.users (login, password) values ('Андрей', 'andrey');
+insert into chat.users (login, password) values ('Антон', 'anton');
+insert into chat.users (login, password) values ('Маша', 'masha');
+insert into chat.users (login, password) values ('Саша', 'sasha');
+insert into chat.users (login, password) values ('Катя', 'katya');
+insert into chat.users (login, password) values ('Сергей', 'sergey');
+insert into chat.users (login, password) values ('Яна', 'yana');
+insert into chat.users (login, password) values ('Аня', 'anya');
+insert into chat.users (login, password) values ('Таня', 'tanya');
+insert into chat.users (login, password) values ('Ваня', 'vanya');
+insert into chat.users (login, password) values ('Иван', 'ivan');
+insert into chat.users (login, password) values ('Данил', 'danil');
+insert into chat.users (login, password) values ('Матвей', 'matwey');
+insert into chat.users (login, password) values ('Иоан', 'ioan');
+insert into chat.users (login, password) values ('Альберт', 'albert');
+insert into chat.users (login, password) values ('Александр', 'alex');
+insert into chat.users (login, password) values ('Алексей', 'alexey');
+insert into chat.users (login, password) values ('Леша', 'lesha');
+insert into chat.users (login, password) values ('Волтер', 'walter');
+insert into chat.users (login, password) values ('Джесси', 'jessie');
+
+insert into chat.rooms (chat_owner, chat_name) values (1, 'chat1');
+insert into chat.rooms (chat_owner, chat_name) values (2, 'chat2');
+insert into chat.rooms (chat_owner, chat_name) values (3, 'chat3');
+insert into chat.rooms (chat_owner, chat_name) values (3, 'chat4');
+insert into chat.rooms (chat_owner, chat_name) values (3, 'chat5');
+
+insert into chat.messages (room_id, author, message, time) values (1, 1, 'hello boy$', '1-1-2000 16:00:00');
+insert into chat.messages (room_id, author, message, time) values (1, 2, 'hi boi', '1-1-2000 16:01:00');
+insert into chat.messages (room_id, author, message, time) values (1, 4, 'i am boy?', '1-1-2000 16:02:00');
+insert into chat.messages (room_id, author, message, time) values (2, 4, 'i am girl?', '1-1-2000 16:02:30');
+insert into chat.messages (room_id, author, message, time) values (2, 4, 'no you are not', '1-1-2000 16:03:00');
+insert into chat.messages (room_id, author, message, time) values (2, 5, 'what are you doing in out chat??', '1-1-2000 16:03:10');

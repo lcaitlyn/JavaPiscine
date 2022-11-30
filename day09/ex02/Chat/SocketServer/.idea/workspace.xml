@@ -5,83 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41e4c4df-12d7-44c4-95da-d76b56bf8c0b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/Chat.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SocketClient/.idea/SocketClient.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SocketClient/socket-client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba/storage_v2/_src_/database/postgres.edMnLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_beust_jcommander_1_78.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_4_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hsqldb_hsqldb_2_4_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_8_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_7_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_3_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_3_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Service.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socket-server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/application/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/config/SocketsApplicationConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/models/Chatroom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/models/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/repositories/ChatroomRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/repositories/CrudRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/repositories/MessageRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/repositories/UsersRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/repositories/UsersRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/server/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/server/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/services/ChatroomService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/services/ChatroomServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/services/UsersService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/services/UsersServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/application/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/config/SocketsApplicationConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/models/Chatroom.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/models/Message.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/models/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/repositories/ChatroomRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/repositories/CrudRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/repositories/MessageRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/repositories/UsersRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/repositories/UsersRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/server/Client.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/server/Server.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/services/ChatroomService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/services/ChatroomServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/services/UsersService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/services/UsersServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socket-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/socket-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/server/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/server/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/school21/sockets/models/Chatroom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/models/Chatroom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/school21/sockets/server/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/server/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/school21/sockets/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/server/Server.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,27 +68,29 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/lcaitlyn/Desktop/JavaPiscine/day09/ex02/Chat/SocketServer",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "spring.configuration.checksum": "9be0706a732a46e959fe4fb5dae2a01b"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/lcaitlyn/Desktop/JavaPiscine/day09/ex02/Chat/SocketServer&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;9be0706a732a46e959fe4fb5dae2a01b&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.school21.sockets.application.Main" />
-      <module name="SocketServer" />
+      <module name="socket-server" />
       <option name="PROGRAM_PARAMETERS" value="--port=8081" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -196,6 +132,10 @@
       <workItem from="1669640854536" duration="157000" />
       <workItem from="1669641014573" duration="82000" />
       <workItem from="1669641751237" duration="1168000" />
+      <workItem from="1669806454999" duration="77000" />
+      <workItem from="1669806719646" duration="1393000" />
+      <workItem from="1669810894261" duration="50000" />
+      <workItem from="1669811066902" duration="135000" />
     </task>
     <servers />
   </component>
@@ -218,12 +158,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/school21/sockets/server/Client.java</url>
-          <line>200</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/school21/sockets/server/Client.java</url>
-          <line>239</line>
+          <line>238</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>

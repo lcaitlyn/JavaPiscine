@@ -42,6 +42,7 @@ public class Client extends Thread {
 
             userMenu();
             roomMenu();
+
         } catch (Exception e) {
             System.out.println("Client '" + Thread.currentThread().getName() + "' has disconnected");
         } finally {
@@ -55,7 +56,7 @@ public class Client extends Thread {
         }
     }
 
-    private void userMenu() {
+    private boolean userMenu() {
         boolean status = true;
 
         try {
@@ -67,7 +68,7 @@ public class Client extends Thread {
                     case "1":
                     case "sign up":
                         if (!signUp())
-                            break;
+                            return false;
                     case "2":
                     case "sign in":
                         if (!signIn())
@@ -77,7 +78,7 @@ public class Client extends Thread {
                     case "exit":
                     case "3":
                         writeToClient("You have left the chat messenger...");
-                        return;
+                        return false;
                     default:
                         writeToClient("Wrong command! Try 'Sign Up / Sign In / Exit' or number");
                 }
@@ -85,9 +86,13 @@ public class Client extends Thread {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return true;
     }
 
     private void roomMenu() {
+        if (user == null)
+            return;
+
         boolean status = true;
 
         try {
@@ -123,8 +128,10 @@ public class Client extends Thread {
     private boolean createRoom() {
         try {
             writeToClient("Creating new room...");
-            chatroomService.createChatroom(new Chatroom(getInfo("chatroom name"), user));
-//            chatroomRepository.save(new Chatroom(getInfo("chatroom name"), user));
+            Chatroom newChat = new Chatroom(getInfo("chatroom name"), user);
+
+            chatroomService.createChatroom(newChat);
+            Server.chatrooms.add(newChat);
             writeToClient("Chatroom was created");
             return true;
         } catch (RuntimeException e) {
@@ -134,7 +141,6 @@ public class Client extends Thread {
     }
 
     private boolean chooseRoom() {
-        Server.chatrooms = chatroomService.getChatrooms();
 
         if (Server.chatrooms == null || Server.chatrooms.size() == 0) {
             writeToClient("There are not chat rooms. You need create the one");
@@ -150,21 +156,20 @@ public class Client extends Thread {
         while (true) {
             try {
                 i = Integer.parseInt(getInfo("id"));
+
                 for (Chatroom c : Server.chatrooms) {
                     if (c.getId() == i) {
                         chatroom = c;
-                        chatroom.add
+                        chatroom.addClient(this);
                     }
                 }
-                chatroom = Server.chatrooms.get(i - 1);
-                // проверка на 
-                if (Server.chatrooms.indexOf(chatroom) == -1)
-                    Server.chatrooms.add(chatroom);
-                break;
+
+                if (chatroom != null)
+                    break;
+
+                writeToClient("Error! There is no same id!");
             } catch (NumberFormatException e) {
                 writeToClient("Error! The number was expected!");
-            } catch (IndexOutOfBoundsException e) {
-                writeToClient("Error! Wrong index");
             }
         }
         return true;
@@ -197,13 +202,7 @@ public class Client extends Thread {
 
     private void startMessenger() {
         try {
-
             writeToClient("Start messaging...");
-//            writeToChatroom(user.getUsername() + " has joined the chat room.");
-//            messageRepository.save(new Message(
-//                    user.getUsername() + " has joined the chat room.",
-//                        user, chatroom, LocalDateTime.now()
-//                    ));
 
             String text = reader.readLine();
             while (!text.equalsIgnoreCase("exit")) {
@@ -241,7 +240,6 @@ public class Client extends Thread {
 
             if (client.socket.isConnected() && client.isOnline)
                 client.writeToClient(message);
-
         }
     }
 

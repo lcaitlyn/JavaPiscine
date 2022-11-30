@@ -31,6 +31,8 @@ public class Server {
     }
 
     public void start() {
+        Server.chatrooms = chatroomService.getChatrooms();
+
         try {
             ServerSocket serverSocket = new ServerSocket(port);
 
