@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41e4c4df-12d7-44c4-95da-d76b56bf8c0b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/09ba037c-c0dc-4020-872a-bb9f964c55ba/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/socket-server.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/server/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/server/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/school21/sockets/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/school21/sockets/models/Chatroom.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/models/Chatroom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/school21/sockets/server/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/server/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/school21/sockets/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/school21/sockets/server/Server.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +126,7 @@
       <workItem from="1669806454999" duration="77000" />
       <workItem from="1669806719646" duration="1393000" />
       <workItem from="1669810894261" duration="50000" />
-      <workItem from="1669811066902" duration="135000" />
+      <workItem from="1669811066902" duration="264000" />
     </task>
     <servers />
   </component>

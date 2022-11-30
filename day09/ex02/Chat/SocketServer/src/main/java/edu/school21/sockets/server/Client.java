@@ -213,7 +213,7 @@ public class Client extends Thread {
                 text = reader.readLine();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            
         }
     }
 
