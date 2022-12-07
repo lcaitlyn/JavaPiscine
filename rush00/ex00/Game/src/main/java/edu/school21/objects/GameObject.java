@@ -1,6 +1,7 @@
 package edu.school21.objects;
 
 import edu.school21.ChaseLogic.GameObjectInterface;
+import edu.school21.Parameters.Parameters;
 
 import java.awt.*;
 import static com.diogonunes.jcolor.Ansi.colorize;

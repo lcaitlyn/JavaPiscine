@@ -8,16 +8,16 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Parameters {
-    private char enemyChar;
-    private char playerChar;
-    private char wallChar;
-    private char goalChar;
-    private char emptyChar;
-    private Color enemyColor;
-    private Color playerColor;
-    private Color wallColor;
-    private Color goalColor;
-    private Color emptyColor;
+    static private char enemyChar;
+    static private char playerChar;
+    static private char wallChar;
+    static private char goalChar;
+    static private char emptyChar;
+    static private Color enemyColor;
+    static private Color playerColor;
+    static private Color wallColor;
+    static private Color goalColor;
+    static private Color emptyColor;
     private final String PROPERTIES_PATH = "/application-%s.properties";
 
     // всю эту тему можно сделать легче изучив класс Properties
@@ -147,43 +147,43 @@ public class Parameters {
         this.emptyColor = emptyColor;
     }
 
-    public char getEnemyChar() {
+    static public char getEnemyChar() {
         return enemyChar;
     }
 
-    public char getPlayerChar() {
+    static public char getPlayerChar() {
         return playerChar;
     }
 
-    public char getWallChar() {
+    static public char getWallChar() {
         return wallChar;
     }
 
-    public char getGoalChar() {
+    static public char getGoalChar() {
         return goalChar;
     }
 
-    public char getEmptyChar() {
+    static public char getEmptyChar() {
         return emptyChar;
     }
 
-    public Color getEnemyColor() {
+    static public Color getEnemyColor() {
         return enemyColor;
     }
 
-    public Color getPlayerColor() {
+    static public Color getPlayerColor() {
         return playerColor;
     }
 
-    public Color getWallColor() {
+    static public Color getWallColor() {
         return wallColor;
     }
 
-    public Color getGoalColor() {
+    static public Color getGoalColor() {
         return goalColor;
     }
 
-    public Color getEmptyColor() {
+    static public Color getEmptyColor() {
         return emptyColor;
     }
 }
